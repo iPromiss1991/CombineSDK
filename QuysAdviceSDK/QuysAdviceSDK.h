@@ -16,4 +16,16 @@ FOUNDATION_EXPORT const unsigned char QuysAdviceSDKVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <QuysAdviceSDK/PublicHeader.h>
 
+#import <QuysAdviceSDK/QuysBannerAdvice.h>
+#import <QuysAdviceSDK/QuysBaseAdvice.h>
+#import <QuysAdviceSDK/QuysAdConfigManager.h>
 
+//
+//#import <QuysAdviceSDK/PublicHeader.h>
+//#import <QuysAdviceSDK/PublicHeader.h>
+//#import <QuysAdviceSDK/PublicHeader.h>
+//
+//
+//#import <QuysAdviceSDK/PublicHeader.h>
+//#import <QuysAdviceSDK/PublicHeader.h>
+//#import <QuysAdviceSDK/PublicHeader.h>
