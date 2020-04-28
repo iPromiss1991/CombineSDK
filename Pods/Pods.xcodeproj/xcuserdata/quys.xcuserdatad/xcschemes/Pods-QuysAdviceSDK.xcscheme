@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9975F69F28175150A9422A3707D14B6C"
-               BuildableName = "libPods-QuysAdviceSDKTests.a"
-               BlueprintName = "Pods-QuysAdviceSDKTests"
+               BlueprintIdentifier = "523153C42891B6D3510971499B8C67C0"
+               BuildableName = "libPods-QuysAdviceSDK.a"
+               BlueprintName = "Pods-QuysAdviceSDK"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
