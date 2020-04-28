@@ -7,7 +7,19 @@
 //
 
 #import "QuysBaseRequestApi.h"
+//#import <YTKNetwork/YTKNetwork.h>//YTKBaseRequest
 
 @implementation QuysBaseRequestApi
+
+
+-(NSTimeInterval)requestTimeoutInterval
+{
+    return 2;
+}
+- (YTKRequestMethod)requestMethod
+{
+    return YTKRequestMethodPOST;
+}
+
 
 @end

@@ -18,12 +18,18 @@ FOUNDATION_EXPORT const unsigned char QuysAdviceSDKVersionString[];
 
 #import <QuysAdviceSDK/QuysBannerAdvice.h>
 #import <QuysAdviceSDK/QuysBaseAdvice.h>
-#import <QuysAdviceSDK/QuysAdConfigManager.h>
+#import <QuysAdviceSDK/QuysAdManager.h>
 
 //
-//#import <QuysAdviceSDK/PublicHeader.h>
-//#import <QuysAdviceSDK/PublicHeader.h>
-//#import <QuysAdviceSDK/PublicHeader.h>
+#import <QuysAdviceSDK/QuysBannerAdvice.h>
+#import <QuysAdviceSDK/QuysOpenScreenAdvice.h>
+#import <QuysAdviceSDK/QuysSplashAdvice.h>
+#import <QuysAdviceSDK/QuysInformationFlowAdvice.h>
+#import <QuysAdviceSDK/QuysIncentiveVideoAdvice.h>
+
+#import <QuysAdviceSDK/QuysSplashAdviceDelegate.h>
+#import <QuysAdviceSDK/QuysOpenScreenAdviceDelegate.h>
+#import <QuysAdviceSDK/QuysIncentiveVideoAdviceDelegate.h>
 //
 //
 //#import <QuysAdviceSDK/PublicHeader.h>

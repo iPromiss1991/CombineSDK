@@ -9,7 +9,7 @@
 #import "QuysBaseAdviceDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
-///banner、信息流、插屏、开屏广告协议
+///banner、信息流、插屏、开屏广告协议（请遵循协议）
 @protocol QuysSplashAdviceDelegate <QuysBaseAdviceDelegate>
 
 @end

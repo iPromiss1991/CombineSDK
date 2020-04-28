@@ -1,6 +1,0 @@
-framework module quysAdvice {
-  umbrella header "quysAdvice.h"
-
-  export *
-  module * { export * }
-}

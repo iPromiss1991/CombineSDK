@@ -6,13 +6,12 @@
 //  Copyright © 2020 Quys. All rights reserved.
 //
 
-//#import <YTKNetwork/YTKNetwork.h>//YTKBaseRequest
-//#import "YTKBaseRequest.h"
+#import <YTKNetwork/YTKNetwork.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /// 基础请求Api
-@interface QuysBaseRequestApi : NSObject
+@interface QuysBaseRequestApi : YTKBaseRequest
 
 @end
 

@@ -12,6 +12,13 @@
 #import "UIDevice+Quys_Format.h"
 #import "NSDate+Quys_Format.h"
 
+#import "QuysAdConfigManager.h"
+
+
+#import "GlobalMacros.h"
+
+#import <YYModel.h>
+
 
 
 #endif /* QusPCHHeader_h */

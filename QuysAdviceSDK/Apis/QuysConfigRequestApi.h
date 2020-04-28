@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 网络配置请求Api
 @interface QuysConfigRequestApi : QuysBaseRequestApi
 
+@property (nonatomic,strong) NSDictionary *requestJsonDic;
+
 @end
 
 NS_ASSUME_NONNULL_END

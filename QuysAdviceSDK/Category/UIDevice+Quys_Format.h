@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取应用ID
 - (NSString*)quys_getBundleID;
 
+
+
 @end
 
 NS_ASSUME_NONNULL_END

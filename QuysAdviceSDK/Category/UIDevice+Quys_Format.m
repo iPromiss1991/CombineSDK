@@ -12,9 +12,9 @@
 
 @implementation UIDevice (Quys_Format)
 
--(NSString *)quys_getAppName
+- (NSString *)quys_getAppName
 {
-    return  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+    return  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]?[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
 }
 
 - (NSString*)quys_getBundleID

@@ -11,7 +11,7 @@
 #import "QuysBaseAdvice.h"
  
 NS_ASSUME_NONNULL_BEGIN
-///广告基础协议
+///广告基础协议（请遵循协议）
 @protocol QuysBaseAdviceDelegate <NSObject>
 
 @optional
