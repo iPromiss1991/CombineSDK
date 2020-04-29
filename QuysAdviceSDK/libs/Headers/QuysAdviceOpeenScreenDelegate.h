@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 开屏广告代理
 @protocol QuysAdviceOpeenScreenDelegate <QuysAdviceBaseDelegate>
+@optional
+
 
 /// 视频播放开始
 /// @param service 广告服务对象

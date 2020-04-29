@@ -106,10 +106,11 @@
                  }];
                  
              }];
-             //根据权重获取广告
+             //TODO：根据权重获取广告
          #define Quys_Debug
 
          #ifdef Quys_Debug
+        //发布时注释该段代码
              NSMutableArray *adviceInfoArrTest = [NSMutableArray new];
              [adviceInfoArr enumerateObjectsUsingBlock:^(QuysAdconfigResponseModelDataItemAdviceInfo *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                  if ([obj.channelName isEqualToString:k_qys_sdk])

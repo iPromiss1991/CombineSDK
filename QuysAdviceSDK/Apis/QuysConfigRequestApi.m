@@ -12,7 +12,7 @@
 
 -(NSString *)requestUrl
 {
-#define Quys_Debug
+//#define Quys_Debug
     
 #ifdef Quys_Debug
     

@@ -95,7 +95,6 @@
         QuysAdOpenScreenService *serviceItem = (QuysAdOpenScreenService*)service;
         advice.adviceView = serviceItem.adviceView;
         [self.delegate quys_requestSuccess:advice];
-        NSLog(@"\n\n\n\n\n\n\n请求成功\n\n\n\n\n\n\n");
     }
 }
 
