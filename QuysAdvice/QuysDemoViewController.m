@@ -35,7 +35,7 @@
     self.viewContainBottom =  viewContainBottom;
     NSString *strService = self.title;
     
-    //TODO：正式环境测试数据
+    //TODO：正式环境测试数据( 在setting中设置  IsReleaseVersion)
     
 #ifdef IsReleaseVersion
     {

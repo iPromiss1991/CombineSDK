@@ -54,7 +54,7 @@
  /// 发起请求
 - (void)loadAdViewAndShow
 {
-    [self.service loadAdViewAndShow];//TODO:
+    [self.service loadAdViewAndShow]; 
     
 }
 
@@ -130,7 +130,7 @@
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClick:relativeClickPoint:service:)])
     {
         QuysOpenScreenAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_interstitialOnClick:cpClick relativeClickPoint:cpClick service:advice];
+        [self.delegate quys_interstitialOnClick:cpClick relativeClickPoint:cpClick advice:advice];
     }
 }
 /// 广告关闭
@@ -141,6 +141,26 @@
     {
         QuysOpenScreenAdvice *advice = [self buildAdvice:service];
         [self.delegate quys_interstitialOnAdClose:advice];
+    }
+}
+
+
+- (void)quys_videoPlaystart:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_videoPlaystart:)])
+    {
+        QuysOpenScreenAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_videoPlaystart:advice];
+    }
+}
+
+
+- (void)quys_videoPlayEnd:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_videoPlayEnd:)])
+    {
+        QuysOpenScreenAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_videoPlayEnd:advice];
     }
 }
 
@@ -161,4 +181,6 @@
 {
     
 }
+
+
 @end

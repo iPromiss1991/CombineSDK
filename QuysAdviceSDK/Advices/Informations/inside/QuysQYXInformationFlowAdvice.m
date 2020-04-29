@@ -135,7 +135,7 @@
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClick:relativeClickPoint:service:)])
     {
         QuysInformationFlowAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_interstitialOnClick:cpClick relativeClickPoint:cpClick service:advice];
+        [self.delegate quys_interstitialOnClick:cpClick relativeClickPoint:cpClick advice:advice];
     }
 }
 /// 广告关闭

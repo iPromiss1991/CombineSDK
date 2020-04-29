@@ -23,7 +23,7 @@
 
 @implementation QuysQYXIncentiveVideoAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey   eventDelegate:(nonnull id<QuysOpenScreenAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView
+- (instancetype)initWithID:businessID key:bussinessKey   eventDelegate:(nonnull id<QuysIncentiveVideoAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView
 {
     if (self = [super init])
     {
@@ -124,7 +124,7 @@
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClick:relativeClickPoint:service:)])
     {
         QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_interstitialOnClick:cpClick relativeClickPoint:cpClick service:advice];
+        [self.delegate quys_interstitialOnClick:cpClick relativeClickPoint:cpClick advice:advice];
     }
 }
 /// 广告关闭
@@ -140,6 +140,128 @@
 
 
 
+
+
+- (void)quys_IncentiveVideoLoadFail:(nonnull NSError *)error service:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoLoadFail:service: )])
+       {
+           QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+           [self.delegate quys_IncentiveVideoLoadFail:error advice:advice];
+           
+       }
+}
+
+- (void)quys_IncentiveVideoLoadSuccess:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoLoadSuccess:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_IncentiveVideoLoadSuccess:advice];
+    }
+}
+///
+- (void)quys_IncentiveVideoMuteplay:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoMuteplay:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_IncentiveVideoMuteplay:advice];
+    }
+}
+
+- (void)quys_IncentiveVideoPlayEnd:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoPlayEnd:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_IncentiveVideoPlayEnd:advice];
+    }
+}
+
+- (void)quys_IncentiveVideoPlayProgress:(NSInteger)progress service:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoPlayProgress:service:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_IncentiveVideoPlayProgress:progress advice:advice];
+    }
+}
+
+- (void)quys_IncentiveVideoPlaystart:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoPlaystart:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_IncentiveVideoPlaystart:advice];
+    }
+}
+
+- (void)quys_IncentiveVideoResume:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoResume:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_IncentiveVideoResume:advice];
+    }
+}
+
+- (void)quys_IncentiveVideoSkip:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoSkip:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_IncentiveVideoSkip:advice];
+    }
+}
+
+- (void)quys_IncentiveVideoSuspend:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoSuspend:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_IncentiveVideoSuspend:advice];
+    }
+}
+
+- (void)quys_IncentiveVideoUnMuteplay:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoUnMuteplay:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_IncentiveVideoUnMuteplay:advice];
+    }
+}
+
+- (void)quys_endViewInterstitialOnAdClose:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_endViewInterstitialOnAdClose:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_endViewInterstitialOnAdClose:advice];
+    }
+}
+
+- (void)quys_endViewInterstitialOnClick:(CGPoint)cpClick relativeClickPoint:(CGPoint)reClick service:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_endViewInterstitialOnClick:relativeClickPoint:service:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_endViewInterstitialOnClick:cpClick relativeClickPoint:reClick advice:advice];
+    }
+}
+
+- (void)quys_endViewInterstitialOnExposure:(nonnull QuysAdBaseService *)service
+{
+    if ([self.delegate respondsToSelector:@selector(quys_endViewInterstitialOnExposure:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice:service];
+        [self.delegate quys_endViewInterstitialOnExposure:advice];
+    }
+}
+
+
+
 #pragma mark - Init
 -(UIView *)adviceView
 {
@@ -148,7 +270,6 @@
         _adviceView = [UIView new];
     }return _adviceView;
 }
-
 
 -(void)dealloc
 {

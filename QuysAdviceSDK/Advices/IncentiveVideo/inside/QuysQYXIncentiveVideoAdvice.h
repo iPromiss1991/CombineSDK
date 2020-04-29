@@ -7,14 +7,14 @@
 //
 
 #import "QuysIncentiveVideoBaseAdvice.h"
-#import "QuysOpenScreenAdviceDelegate.h"
+#import "QuysIncentiveVideoAdviceDelegate.h"
 #import <quysAdvice.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QuysQYXIncentiveVideoAdvice : QuysIncentiveVideoBaseAdvice
 
-@property (nonatomic,weak) id <QuysOpenScreenAdviceDelegate> delegate;//!<  服务代理
+@property (nonatomic,weak) id <QuysIncentiveVideoAdviceDelegate> delegate;//!<  服务代理
 @property (nonatomic,strong) UIView *adviceView;//!<  广告视图
 
 
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param parentView 弹窗父视图（展示弹窗的容器视图）
 - (instancetype)initWithID:businessID
                        key:bussinessKey
-             eventDelegate:(id <QuysOpenScreenAdviceDelegate>)delegate
+             eventDelegate:(id <QuysIncentiveVideoAdviceDelegate>)delegate
                 parentView:(UIView*)parentView;
 
 

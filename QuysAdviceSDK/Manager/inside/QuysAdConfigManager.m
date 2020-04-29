@@ -53,7 +53,8 @@
     if (self.configModel )
     {
         [self.configModel.data.configs enumerateObjectsUsingBlock:^(QuysAdconfigResponseModelDataItemAdvice * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([obj.channelName isEqualToString:k_qys_sdk]) {
+            if ([obj.channelName isEqualToString:k_qys_sdk])
+            {
                 [[QuysAdviceManager shareManager] configSettings];
 
             }
@@ -84,43 +85,48 @@
 
 - (QuysAdconfigResponseModelDataItemAdviceInfo*)getAdviceByType:(QuysConfigAdviceType)adviceType
 {
-    
+    //:校验bundleID是否合规（校验 本地BundleID 和 下发的BundleID 是否一致）
     QuysAdconfigResponseModelDataItemAdviceInfo *adviceInfo = nil;
-    NSMutableArray *adviceInfoArr = [NSMutableArray new];
-    [self.configModel.data.configs enumerateObjectsUsingBlock:^(QuysAdconfigResponseModelDataItemAdvice * _Nonnull advice, NSUInteger idxAdvice, BOOL * _Nonnull stopAdvice) {
-        //商户
-        
-        [advice.info enumerateObjectsUsingBlock:^(QuysAdconfigResponseModelDataItemAdviceInfo * _Nonnull adviceInfoItem, NSUInteger idxAdviceInfo, BOOL * _Nonnull stopAdviceInfo) {
-            //商户广告
-            if (adviceInfoItem.type == adviceType)
-            {
-                //添加字段
-                adviceInfoItem.appId = advice.appId;
-                adviceInfoItem.channelName = advice.channelName;
-                [adviceInfoArr addObject:adviceInfoItem];
-            }
-        }];
-        
-    }];
-    //根据权重获取广告
-#define Quys_Debug
-
-#ifdef Quys_Debug
-    NSMutableArray *adviceInfoArrTest = [NSMutableArray new];
-    [adviceInfoArr enumerateObjectsUsingBlock:^(QuysAdconfigResponseModelDataItemAdviceInfo *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj.channelName isEqualToString:k_qys_sdk])
-        {
-            [adviceInfoArrTest addObject:obj];
-        }
-    }];
-    adviceInfoArr = adviceInfoArrTest;
-#else
-#endif
-
-    if (adviceInfoArr.count)
+    UIDevice *device = [UIDevice new];
+//    if ([self.configModel.data.packageName isEqualToString:[device quys_getBundleID]])
     {
-         adviceInfo = adviceInfoArr[arc4random()%adviceInfoArr.count];
+          NSMutableArray *adviceInfoArr = [NSMutableArray new];
+             [self.configModel.data.configs enumerateObjectsUsingBlock:^(QuysAdconfigResponseModelDataItemAdvice * _Nonnull advice, NSUInteger idxAdvice, BOOL * _Nonnull stopAdvice) {
+                 //商户
+                 
+                 [advice.info enumerateObjectsUsingBlock:^(QuysAdconfigResponseModelDataItemAdviceInfo * _Nonnull adviceInfoItem, NSUInteger idxAdviceInfo, BOOL * _Nonnull stopAdviceInfo) {
+                     //商户广告
+                     if (adviceInfoItem.type == adviceType)
+                     {
+                         //添加字段
+                         adviceInfoItem.appId = advice.appId;
+                         adviceInfoItem.channelName = advice.channelName;
+                         [adviceInfoArr addObject:adviceInfoItem];
+                     }
+                 }];
+                 
+             }];
+             //根据权重获取广告
+         #define Quys_Debug
+
+         #ifdef Quys_Debug
+             NSMutableArray *adviceInfoArrTest = [NSMutableArray new];
+             [adviceInfoArr enumerateObjectsUsingBlock:^(QuysAdconfigResponseModelDataItemAdviceInfo *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                 if ([obj.channelName isEqualToString:k_qys_sdk])
+                 {
+                     [adviceInfoArrTest addObject:obj];
+                 }
+             }];
+             adviceInfoArr = adviceInfoArrTest;
+         #else
+         #endif
+
+             if (adviceInfoArr.count)
+             {
+                  adviceInfo = adviceInfoArr[arc4random()%adviceInfoArr.count];
+             }
     }
+   
     return adviceInfo;
 }
 
