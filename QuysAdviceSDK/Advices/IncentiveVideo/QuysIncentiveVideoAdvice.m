@@ -43,9 +43,29 @@
 - (void)config
 {
     //TODO:配置并请求数据
-    
-    QuysQYXIncentiveVideoAdvice *advice = [[QuysQYXIncentiveVideoAdvice alloc] initWithID:self.businessID key:self.bussinessKey  eventDelegate:self parentView:self.parentView];
-    self.advice = advice;
+    QuysAdConfigManager *manager = [QuysAdConfigManager shareManager];
+       QuysAdconfigResponseModelDataItemAdviceInfo* adviceInfo = [manager getAdviceByType:QuysConfigAdviceTypeBanner];
+       if ([adviceInfo.channelName isEqualToString:k_qys_sdk])
+       {
+           QuysQYXIncentiveVideoAdvice *advice = [[QuysQYXIncentiveVideoAdvice alloc] initWithID:self.businessID key:self.bussinessKey  eventDelegate:self parentView:self.parentView];
+           self.advice = advice;
+       }else if ([adviceInfo.channelName isEqualToString:k_ks_sdk])
+       {
+           
+       }else if ([adviceInfo.channelName isEqualToString:k_csj_sdk])
+       {
+           
+       }else if ([adviceInfo.channelName isEqualToString:k_wm_sdk])
+       {
+           
+       }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
+       {
+           
+       }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
+       {
+           
+       }
+
     
 }
 

@@ -52,7 +52,7 @@
     {
         QuysQYXBannerAdvice *advice = [[QuysQYXBannerAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
         self.advice = advice;
-    }else if ([adviceInfo.channelName isEqualToString:K_ks_sdk])
+    }else if ([adviceInfo.channelName isEqualToString:k_ks_sdk])
     {
         
     }else if ([adviceInfo.channelName isEqualToString:k_csj_sdk])

@@ -27,7 +27,7 @@
  channelName= ="baidu_sdk";//百青藤
  */
 #define k_qys_sdk @"qys_sdk"
-#define K_ks_sdk @"ks_sdk"
+#define k_ks_sdk @"ks_sdk"
 #define k_csj_sdk @"csj_sdk"
 
 #define k_wm_sdk @"wm_sdk"

@@ -47,7 +47,7 @@
     {
         QuysQYXOpenScreenAdvice *advice = [[QuysQYXOpenScreenAdvice alloc] initWithID:self.businessID key:self.bussinessKey launchScreenVC:self.launchScreenVC eventDelegate:self];
         self.advice = advice;
-    }else if ([adviceInfo.channelName isEqualToString:K_ks_sdk])
+    }else if ([adviceInfo.channelName isEqualToString:k_ks_sdk])
     {
         
     }else if ([adviceInfo.channelName isEqualToString:k_csj_sdk])

@@ -7,7 +7,7 @@
 //
 
 #import "QuysInformationFlowAdvice.h"
-#import "QuysQYXBannerAdvice.h"
+#import "QuysQYXInformationFlowAdvice.h"
 
 @interface QuysInformationFlowAdvice()<QuysSplashAdviceDelegate>
 
@@ -18,7 +18,7 @@
 @property (nonatomic,strong) UIView *parentView;
 @property (nonatomic,strong) UIViewController *currentViewController;
 
-@property (nonatomic,strong) QuysQYXBannerAdvice *advice;
+@property (nonatomic,strong) QuysInformationFlowBaseAdvice *advice;
 
 @end
 
@@ -45,9 +45,29 @@
 - (void)config
 {
     //TODO:配置并请求数据
+    QuysAdConfigManager *manager = [QuysAdConfigManager shareManager];
+    QuysAdconfigResponseModelDataItemAdviceInfo* adviceInfo = [manager getAdviceByType:QuysConfigAdviceTypeBanner];
+    if ([adviceInfo.channelName isEqualToString:k_qys_sdk])
+    {
+        QuysQYXInformationFlowAdvice *advice = [[QuysQYXInformationFlowAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
+        self.advice = advice;
+    }else if ([adviceInfo.channelName isEqualToString:k_ks_sdk])
+    {
+        
+    }else if ([adviceInfo.channelName isEqualToString:k_csj_sdk])
+    {
+        
+    }else if ([adviceInfo.channelName isEqualToString:k_wm_sdk])
+    {
+        
+    }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
+    {
+        
+    }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
+    {
+        
+    }
 
-    QuysQYXBannerAdvice *advice = [[QuysQYXBannerAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
-    self.advice = advice;
     
 }
 

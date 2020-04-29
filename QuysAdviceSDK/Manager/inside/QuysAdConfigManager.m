@@ -87,8 +87,8 @@
 {
     //:校验bundleID是否合规（校验 本地BundleID 和 下发的BundleID 是否一致）
     QuysAdconfigResponseModelDataItemAdviceInfo *adviceInfo = nil;
-    UIDevice *device = [UIDevice new];
-//    if ([self.configModel.data.packageName isEqualToString:[device quys_getBundleID]])
+//    UIDevice *device = [UIDevice new];
+//    if ([self.configModel.data.packageName isEqualToString:[device quys_getBundleID]]) //TODO:发布时取消注释
     {
           NSMutableArray *adviceInfoArr = [NSMutableArray new];
              [self.configModel.data.configs enumerateObjectsUsingBlock:^(QuysAdconfigResponseModelDataItemAdvice * _Nonnull advice, NSUInteger idxAdvice, BOOL * _Nonnull stopAdvice) {

@@ -6,13 +6,13 @@
 //  Copyright © 2020 Quys. All rights reserved.
 //
 
-#import "QuysBannerBaseAdvice.h"
+#import "QuysInformationFlowBaseAdvice.h"
 #import "QuysSplashAdviceDelegate.h"
 #import <quysAdvice.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QuysQYXInformationFlowAdvice : QuysBannerBaseAdvice
+@interface QuysQYXInformationFlowAdvice : QuysInformationFlowBaseAdvice
 
 @property (nonatomic,weak) id <QuysSplashAdviceDelegate> delegate;//!<  服务代理
 @property (nonatomic,strong) UIView *adviceView;//!<  广告视图
