@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "QuysServiceListTableViewController.h"
+#import "ViewController.h"
 #import <QuysAdviceSDK/QuysAdviceSDK.h>
 @interface AppDelegate ()<QuysOpenScreenAdviceDelegate>
 @property (nonatomic,strong)QuysOpenScreenAdvice *service ;
@@ -22,8 +23,16 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor clearColor];
-    QuysServiceListTableViewController *rootVC = [QuysServiceListTableViewController new];
-    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:rootVC];
+    ViewController *rootVC = [ViewController new];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:rootVC];
+    
+    ViewController *rootVC1 = [ViewController new];
+    UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:rootVC1];
+
+    UITabBarController *tabBarVC = [[UITabBarController alloc]init] ;
+    tabBarVC.viewControllers = @[nav,nav1];
+    self.window.rootViewController = tabBarVC;
+    
     [self.window makeKeyAndVisible];
     
     
