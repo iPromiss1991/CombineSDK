@@ -132,10 +132,10 @@
 /// @param service 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_interstitialOnClick:(CGPoint)cpClick  relativeClickPoint:(CGPoint)reClick service:(QuysAdBaseService*)service;
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClick:relativeClickPoint:service:)])
+    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
     {
         QuysSplashAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_interstitialOnClick:cpClick relativeClickPoint:cpClick advice:advice];
+        [self.delegate quys_interstitialOnClickAdvice:advice];
     }
 }
 /// 广告关闭

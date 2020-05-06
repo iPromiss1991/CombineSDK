@@ -17,12 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// 视频播放开始
-/// @param service 广告服务对象
+/// @param advice 广告服务对象
 - (void)quys_videoPlaystart:(QuysBaseAdvice*)advice;
 
 
 /// 视频播放结束
-/// @param service 广告服务对象
+/// @param advice 广告服务对象
 - (void)quys_videoPlayEnd:(QuysBaseAdvice*)advice;
 @end
 

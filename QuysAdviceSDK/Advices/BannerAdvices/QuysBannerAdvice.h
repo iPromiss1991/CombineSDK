@@ -23,21 +23,16 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param bussinessKey 业务Key
 /// @param frame 弹窗frame
 /// @param delegate 回调代理
-/// @param parentView 弹窗父视图（展示弹窗的容器视图）
-/// @param currentViewController 弹窗父视图VC
+ /// @param currentViewController 弹窗父视图VC
 - (instancetype)initWithID:businessID
                        key:bussinessKey
                     cgRect:(CGRect)frame
              eventDelegate:(id <QuysSplashAdviceDelegate>)delegate
-                parentView:(UIView*)parentView
-viewController:(UIViewController*)currentViewController;
+ viewController:(UIViewController*)currentViewController;
 
-/// 开始加载视图
-- (void)loadAdViewNow;
+/// 开始加载视图 & 并展示
+- (void)loadAdViewAndShow;
 
-
-/// 开始展示视图
-- (UIView*)showAdView;
 @end
 
 NS_ASSUME_NONNULL_END

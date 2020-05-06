@@ -44,9 +44,9 @@
             {
                 self.service = [[QuysBannerAdvice alloc ]initWithID:@"banner_ios_qys_test"
                                                                    key:@"D0E8D293C79F627ABB15761662C65AB3"
-                                                                cgRect:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width , 200)
-                                                         eventDelegate:self
-                                                            parentView:viewContain viewController:self];
+                                                                cgRect:CGRectMake(0, 64,[UIScreen mainScreen].bounds.size.width , 100)
+                                                                eventDelegate:self
+                                                                viewController:self];
             }
             
             if ([strService isEqualToString:@"信息流"])
@@ -62,7 +62,7 @@
             {
                 self.service = [[QuysSplashAdvice alloc ]initWithID:@"cp_ios_qys_test"
                                                                    key:@"BA705F17304101A531E474CD8BBB5821"
-                                                                cgRect:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 200)
+                                                                cgRect:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width , 200)
                                                          eventDelegate:self
                                                             parentView:self.view];
             }
@@ -76,9 +76,9 @@
            {
                self.service = [[QuysBannerAdvice alloc ]initWithID:@"ziyanapp_banner"
                                                                   key:@"DF6CB421D36AE5B518700B40A77105A7"
-                                                               cgRect:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width , 200)
+                                                               cgRect:CGRectMake(0, 64,[UIScreen mainScreen].bounds.size.width , 100)
                                                         eventDelegate:self
-                                                           parentView:viewContain viewController:self];
+                                                           viewController:self];
            }
            
            if ([strService isEqualToString:@"信息流"])
@@ -101,12 +101,16 @@
     }
    
 #endif
-    if (self.service)
+    if ([self.service isKindOfClass:[QuysBannerAdvice class]])
     {
-        [self.service performSelector:@selector(loadAdViewNow)];
-    }else
+        [self.service performSelector:@selector( loadAdViewAndShow)];
+    }else if ([self.service isKindOfClass:[QuysIncentiveVideoAdvice class]])
     {
         //激励视频
+    }else 
+    {
+        [self.service performSelector:@selector(loadAdViewNow)];
+
     }
     
 }
@@ -168,7 +172,10 @@
 
         }else
         {
-            [self.service performSelector:@selector(showAdView)];
+            if ([self.service respondsToSelector:@selector(showAdView)])
+            {
+                 [self.service performSelector:@selector(showAdView)];
+            }
             self.adviceView = [self.service valueForKey:@"adviceView"];
                   
         }
@@ -177,34 +184,34 @@
         [self.view updateConstraintsIfNeeded];
 
 }
-- (void)quys_requestFial:(QuysBaseAdvice*)service error:(NSError*)error{
+- (void)quys_requestFial:(QuysBaseAdvice*)advice error:(NSError*)error{
     
 }
 
-- (void)quys_interstitialOnExposure:(QuysBaseAdvice*)service{
+- (void)quys_interstitialOnExposure:(QuysBaseAdvice*)advice{
     
 }
-- (void)quys_interstitialOnClick:(CGPoint)cpClick relativeClickPoint:(CGPoint)reClick service:(nonnull QuysBaseAdvice *)service
+- (void)quys_interstitialOnClickAdvice:(QuysBaseAdvice *)advice
 {
     
 }
     
 
-- (void)quys_interstitialOnAdClose:(QuysBaseAdvice*)service{
+- (void)quys_interstitialOnAdClose:(QuysBaseAdvice*)advice{
     
 }
 
 //尾帧
-- (void)quys_endViewInterstitialOnExposure:(QuysBaseAdvice*)service{
+- (void)quys_endViewInterstitialOnExposure:(QuysBaseAdvice*)advice{
     
 }
-- (void)quys_endViewInterstitialOnClick:(CGPoint)cpClick relativeClickPoint:(CGPoint)reClick service:(nonnull QuysBaseAdvice *)service
+- (void)quys_endViewInterstitialOnClickAdvice:(nonnull QuysBaseAdvice *)service
 {
     
 }
 
 
-- (void)quys_endViewInterstitialOnAdClose:(QuysBaseAdvice*)service{
+- (void)quys_endViewInterstitialOnAdClose:(QuysBaseAdvice*)advice{
     
 }
 

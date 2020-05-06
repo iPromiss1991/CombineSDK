@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 广告点击
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_interstitialOnClick:(CGPoint)cpClick  relativeClickPoint:(CGPoint)reClick advice:(QuysBaseAdvice*)advice;
+- (void)quys_interstitialOnClickAdvice:(QuysBaseAdvice*)advice;
 
 /// 广告关闭
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）

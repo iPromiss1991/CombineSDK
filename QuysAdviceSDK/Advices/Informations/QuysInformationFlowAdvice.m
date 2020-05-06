@@ -138,12 +138,12 @@
 
 /// 广告点击
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_interstitialOnClick:(CGPoint)cpClick  relativeClickPoint:(CGPoint)reClick advice:(QuysBaseAdvice*)advice;
+- (void)quys_interstitialOnClickAdvice:(QuysBaseAdvice*)advice
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClick:relativeClickPoint:advice:)])
+    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
     {
 
-        [self.delegate quys_interstitialOnClick:cpClick relativeClickPoint:cpClick advice:advice];
+        [self.delegate quys_interstitialOnClickAdvice:advice];
     }
 }
 /// 广告关闭

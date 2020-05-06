@@ -14,7 +14,7 @@
 @property (nonatomic,strong) NSString *bussinessKey;
 @property (nonatomic,assign) CGRect cgFrame;
 
-@property (nonatomic,strong) UIView *parentView;
+@property (nonatomic,strong) UIViewController *parentVC;
 
  
 @property (nonatomic,strong) QuysAdBannerService *service;
@@ -24,14 +24,14 @@
 
 @implementation QuysQYXBannerAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate                parentViewController:(UIViewController*)parentVC
 {
     if (self = [super init])
     {
         self.businessID = businessID;
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
-        self.parentView = parentView;
+        self.parentVC = parentVC;
         self.cgFrame = cgFrame;
         [self config];
     }return self;
@@ -44,25 +44,16 @@
 {
     //配置并请求数据
 
-    QuysAdBannerService *service = [[QuysAdBannerService alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
+    QuysAdBannerService *service = [[QuysAdBannerService alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentVC.view];
     self.service = service;
     
 }
 
 
-/// 发起请求
-- (void)loadAdViewNow
+/// 开始加载视图 & 并展示
+- (void)loadAdViewAndShow
 {
-    [self.service loadAdViewNow];
-    
-}
-
-
-/// 开始展示视图
-- (UIView*)showAdView
-{
-
-    return [self.service showAdView];
+    [self.service loadAdViewAndShow];
 }
  
 #pragma mark - Method
@@ -132,10 +123,10 @@
 /// @param service 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_interstitialOnClick:(CGPoint)cpClick  relativeClickPoint:(CGPoint)reClick service:(QuysAdBaseService*)service;
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClick:relativeClickPoint:service:)])
+    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
     {
         QuysBannerAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_interstitialOnClick:cpClick relativeClickPoint:cpClick advice:advice];
+        [self.delegate quys_interstitialOnClickAdvice:advice];
     }
 }
 /// 广告关闭

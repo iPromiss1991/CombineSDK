@@ -8,7 +8,7 @@
 
 #import "QuysBannerAdvice.h"
 #import "QuysQYXBannerAdvice.h"
-
+#import "QuysGDTBannerAdvice.h"
 
 @interface QuysBannerAdvice()<QuysSplashAdviceDelegate>
 
@@ -16,8 +16,7 @@
 @property (nonatomic,strong) NSString *bussinessKey;
 @property (nonatomic,assign) CGRect cgFrame;
 
-@property (nonatomic,strong) UIView *parentView;
-@property (nonatomic,strong) UIViewController *currentViewController;
+ @property (nonatomic,strong) UIViewController *currentViewController;
 
 @property (nonatomic,strong) QuysBannerBaseAdvice *advice;
 
@@ -26,14 +25,13 @@
 
 @implementation QuysBannerAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView viewController:(UIViewController*)currentViewController
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate  viewController:(UIViewController*)currentViewController
 {
     if (self = [super init])
     {
         self.businessID = businessID;
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
-        self.parentView = parentView;
         self.cgFrame = cgFrame;
         self.currentViewController = currentViewController;
         [self config];
@@ -50,7 +48,7 @@
     QuysAdconfigResponseModelDataItemAdviceInfo* adviceInfo = [manager getAdviceByType:QuysConfigAdviceTypeBanner];
     if ([adviceInfo.channelName isEqualToString:k_qys_sdk])
     {
-        QuysQYXBannerAdvice *advice = [[QuysQYXBannerAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
+        QuysQYXBannerAdvice *advice = [[QuysQYXBannerAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentViewController:self.currentViewController ];
         self.advice = advice;
     }else if ([adviceInfo.channelName isEqualToString:k_ks_sdk])
     {
@@ -63,7 +61,8 @@
         
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
-        
+        QuysGDTBannerAdvice *advice = [[QuysGDTBannerAdvice alloc ]initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentViewController:self.currentViewController ];
+        self.advice = advice;
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
     {
         
@@ -73,19 +72,9 @@
 }
 
 
-/// 发起请求
-- (void)loadAdViewNow
+- (void)loadAdViewAndShow;
 {
-    [self.advice loadAdViewNow];
-    
-}
-
-
-/// 开始展示视图
-- (UIView*)showAdView
-{
-
-    return [self.advice showAdView];
+    [self.advice loadAdViewAndShow];
 }
  
 
@@ -95,6 +84,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_requestStart:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_requestStart:)])
     {
         [self.delegate quys_requestStart:advice];
@@ -106,6 +96,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_requestSuccess:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
     {
         [self.delegate quys_requestSuccess:advice];
@@ -118,6 +109,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_requestFial:(QuysBaseAdvice*)advice error:(NSError*)error;
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_requestFial:error:)])
        {
 
@@ -130,6 +122,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_interstitialOnExposure:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
     {
 
@@ -139,18 +132,20 @@
 
 /// 广告点击
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_interstitialOnClick:(CGPoint)cpClick  relativeClickPoint:(CGPoint)reClick advice:(QuysBaseAdvice*)advice;
+- (void)quys_interstitialOnClickAdvice:(QuysBaseAdvice*)advice
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClick:relativeClickPoint:advice:)])
+    NSLog(@"%s",__FUNCTION__);
+    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
     {
 
-        [self.delegate quys_interstitialOnClick:cpClick relativeClickPoint:cpClick advice:advice];
+        [self.delegate quys_interstitialOnClickAdvice:advice];
     }
 }
 /// 广告关闭
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_interstitialOnAdClose:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
     {
         [self.delegate quys_interstitialOnAdClose:advice];
