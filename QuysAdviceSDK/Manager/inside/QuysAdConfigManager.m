@@ -113,7 +113,7 @@
         //发布时注释该段代码
              NSMutableArray *adviceInfoArrTest = [NSMutableArray new];
              [adviceInfoArr enumerateObjectsUsingBlock:^(QuysAdconfigResponseModelDataItemAdviceInfo *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                 if ([obj.channelName isEqualToString:k_qys_sdk])//k_ylh_sdk///k_qys_sdk
+                 if ([obj.channelName isEqualToString:k_ylh_sdk])//k_ylh_sdk///k_qys_sdk
                  {
                      [adviceInfoArrTest addObject:obj];
                  }
@@ -126,7 +126,11 @@
              {
                   adviceInfo = adviceInfoArr[arc4random()%adviceInfoArr.count];
              }
-    }
+    }//TODO：发布时取消注释
+//    else
+//    {
+//        NSLog(@"当前App 尚未在广告平台注册！");
+//    }
    
     return adviceInfo;
 }

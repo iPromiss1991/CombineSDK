@@ -51,6 +51,8 @@
 		FB425229246298F100960FF9 /* QuysGDTBannerAdvice.m in Sources */ = {isa = PBXBuildFile; fileRef = FB425227246298F100960FF9 /* QuysGDTBannerAdvice.m */; };
 		FB42522B2462B37400960FF9 /* quysAdvice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB42522A2462B37400960FF9 /* quysAdvice.a */; };
 		FB42522D2462B3B900960FF9 /* QuysAdBannerService.h in Headers */ = {isa = PBXBuildFile; fileRef = FB42522C2462B3B900960FF9 /* QuysAdBannerService.h */; };
+		FB4252302462C0C500960FF9 /* QuysGDTSplashAdvice.m in Sources */ = {isa = PBXBuildFile; fileRef = FB42522E2462C0C500960FF9 /* QuysGDTSplashAdvice.m */; };
+		FB4252312462C0C500960FF9 /* QuysGDTSplashAdvice.h in Headers */ = {isa = PBXBuildFile; fileRef = FB42522F2462C0C500960FF9 /* QuysGDTSplashAdvice.h */; };
 		FB82D8EE244E997700001144 /* QuysAdviceSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FB82D8EC244E997700001144 /* QuysAdviceSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FBF1A23E244EC2A10091400E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1A23D244EC2A10091400E /* AppDelegate.m */; };
 		FBF1A244244EC2A10091400E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1A243244EC2A10091400E /* ViewController.m */; };
@@ -211,6 +213,8 @@
 		FB425227246298F100960FF9 /* QuysGDTBannerAdvice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuysGDTBannerAdvice.m; sourceTree = "<group>"; };
 		FB42522A2462B37400960FF9 /* quysAdvice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = quysAdvice.a; sourceTree = "<group>"; };
 		FB42522C2462B3B900960FF9 /* QuysAdBannerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuysAdBannerService.h; sourceTree = "<group>"; };
+		FB42522E2462C0C500960FF9 /* QuysGDTSplashAdvice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuysGDTSplashAdvice.m; sourceTree = "<group>"; };
+		FB42522F2462C0C500960FF9 /* QuysGDTSplashAdvice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuysGDTSplashAdvice.h; sourceTree = "<group>"; };
 		FB82D8E9244E997700001144 /* QuysAdviceSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuysAdviceSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB82D8EC244E997700001144 /* QuysAdviceSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuysAdviceSDK.h; sourceTree = "<group>"; };
 		FB82D8ED244E997700001144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -648,6 +652,8 @@
 			children = (
 				FBF1A3CB24567A5C0091400E /* QuysSplashBaseAdvice.h */,
 				FBF1A3CC24567A5C0091400E /* QuysSplashBaseAdvice.m */,
+				FB42522F2462C0C500960FF9 /* QuysGDTSplashAdvice.h */,
+				FB42522E2462C0C500960FF9 /* QuysGDTSplashAdvice.m */,
 				FBF1A3CE24567A5C0091400E /* QuysQYXSplashAdvice.h */,
 				FBF1A3CD24567A5C0091400E /* QuysQYXSplashAdvice.m */,
 			);
@@ -700,6 +706,7 @@
 				FB1A3E562459551D00B7A7D7 /* QuysInformationFlowService.h in Headers */,
 				FBF1A31C2451A4B10091400E /* QuysIncentiveVideoAdviceDelegate.h in Headers */,
 				FB4252212462983400960FF9 /* GDTUnifiedInterstitialAd.h in Headers */,
+				FB4252312462C0C500960FF9 /* QuysGDTSplashAdvice.h in Headers */,
 				FBF1A31A2451A4B10091400E /* QuysOpenScreenAdviceDelegate.h in Headers */,
 				FBF1A34A2452BF400091400E /* NSDate+Quys_Format.h in Headers */,
 				FB425228246298F100960FF9 /* QuysGDTBannerAdvice.h in Headers */,
@@ -972,6 +979,7 @@
 				FBF1A3EF2456821B0091400E /* QuysOpenScreenAdvice.m in Sources */,
 				FBF1A3FA2456868C0091400E /* QuysQYXIncentiveVideoAdvice.m in Sources */,
 				FBF1A43A2456DDC40091400E /* QuysQYXBannerAdvice.m in Sources */,
+				FB4252302462C0C500960FF9 /* QuysGDTSplashAdvice.m in Sources */,
 				FBF1A3552452EB1D0091400E /* QuysBaseRequestApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

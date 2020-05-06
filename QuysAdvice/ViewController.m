@@ -45,12 +45,12 @@
     [super updateViewConstraints];
 }
 
--(void)quys_requestStart:(QuysBaseAdvice *)service
+-(void)quys_requestStart:(QuysBaseAdvice *)advice
 {
     NSLog(@"%s",__FUNCTION__);
 }
 
-- (void)quys_requestSuccess:(QuysBaseAdvice *)service
+- (void)quys_requestSuccess:(QuysBaseAdvice *)advice
 {
     if ([self.advice isKindOfClass:[QuysIncentiveVideoAdvice class]])
       {
@@ -67,14 +67,14 @@
     [self.view updateConstraintsIfNeeded];
 }
 
-- (void)quys_interstitialOnAdClose:(QuysBaseAdvice *)service
+- (void)quys_interstitialOnAdClose:(QuysBaseAdvice *)advice
 {
     self.hidenAdvice = YES;
     
     [self.view setNeedsUpdateConstraints];
     [self.view updateConstraintsIfNeeded];
 }
-- (void)quys_requestFial:(QuysBaseAdvice *)service error:(NSError *)error
+- (void)quys_requestFial:(QuysBaseAdvice *)advice error:(NSError *)error
 {
     
 }

@@ -59,10 +59,10 @@
 
 
 /// 开始展示视图
-- (UIView*)showAdView
+- (void)showAdView
 {
 
-    return [self.service showAdView];
+     [self.service showAdView];
 }
  
 #pragma mark - Method

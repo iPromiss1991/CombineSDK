@@ -85,10 +85,14 @@
  */
 - (void)unifiedBannerViewDidLoad:(GDTUnifiedBannerView *)unifiedBannerView
 {
-     
-    NSLog(@"unified banner did load");
-    QuysBannerAdvice *advice = [self buildAdvice];
-    advice.adviceView = unifiedBannerView;
+     if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
+     {
+         QuysBannerAdvice *advice = [self buildAdvice];
+         advice.adviceView = unifiedBannerView;
+         [self.delegate quys_requestSuccess:advice];
+         
+     }
+
 }
 
 /**

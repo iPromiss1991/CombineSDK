@@ -17,8 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// 开始展示视图
-- (UIView*)showAdView;
-
+- (void)showAdView;
 @end
 
 NS_ASSUME_NONNULL_END
