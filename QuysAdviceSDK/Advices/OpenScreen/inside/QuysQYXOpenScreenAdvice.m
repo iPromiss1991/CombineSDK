@@ -144,24 +144,24 @@
 }
 
 
-- (void)quys_videoPlaystart:(nonnull QuysAdBaseService *)service
-{
-    if ([self.delegate respondsToSelector:@selector(quys_videoPlaystart:)])
-    {
-        QuysOpenScreenAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_videoPlaystart:advice];
-    }
-}
-
-
-- (void)quys_videoPlayEnd:(nonnull QuysAdBaseService *)service
-{
-    if ([self.delegate respondsToSelector:@selector(quys_videoPlayEnd:)])
-    {
-        QuysOpenScreenAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_videoPlayEnd:advice];
-    }
-}
+//- (void)quys_videoPlaystart:(nonnull QuysAdBaseService *)service
+//{
+//    if ([self.delegate respondsToSelector:@selector(quys_videoPlaystart:)])
+//    {
+//        QuysOpenScreenAdvice *advice = [self buildAdvice:service];
+//        [self.delegate quys_videoPlaystart:advice];
+//    }
+//}
+//
+//
+//- (void)quys_videoPlayEnd:(nonnull QuysAdBaseService *)service
+//{
+//    if ([self.delegate respondsToSelector:@selector(quys_videoPlayEnd:)])
+//    {
+//        QuysOpenScreenAdvice *advice = [self buildAdvice:service];
+//        [self.delegate quys_videoPlayEnd:advice];
+//    }
+//}
 
 
 

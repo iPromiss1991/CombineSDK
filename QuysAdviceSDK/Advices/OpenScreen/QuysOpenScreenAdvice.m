@@ -8,6 +8,7 @@
 
 #import "QuysOpenScreenAdvice.h"
 #import "QuysQYXOpenScreenAdvice.h"
+#import "QuysGDTOpenScreenAdvice.h"
 
 @interface QuysOpenScreenAdvice()<QuysOpenScreenAdviceDelegate>
 
@@ -59,6 +60,9 @@
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
         
+        QuysGDTOpenScreenAdvice *advice = [[QuysGDTOpenScreenAdvice alloc] initWithID:self.businessID key:self.bussinessKey launchScreenVC:self.launchScreenVC eventDelegate:self];
+        self.advice = advice;
+        
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
     {
         
@@ -81,6 +85,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_requestStart:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_requestStart:)])
     {
         [self.delegate quys_requestStart:advice];
@@ -92,6 +97,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_requestSuccess:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
     {
         [self.delegate quys_requestSuccess:advice];
@@ -104,6 +110,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_requestFial:(QuysBaseAdvice*)advice error:(NSError*)error;
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_requestFial:error:)])
        {
 
@@ -116,6 +123,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_interstitialOnExposure:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
     {
 
@@ -127,6 +135,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_interstitialOnClickAdvice:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
     {
 
@@ -137,6 +146,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_interstitialOnAdClose:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
     {
         [self.delegate quys_interstitialOnAdClose:advice];
@@ -144,13 +154,6 @@
 }
 
 
-- (void)quys_videoPlayEnd:(nonnull QuysBaseAdvice *)advice {
-
-}
-
-- (void)quys_videoPlaystart:(nonnull QuysBaseAdvice *)advice {
-
-}
 
 
 #pragma mark - Init

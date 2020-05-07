@@ -8,6 +8,8 @@
 
 #import "QuysGDTBannerAdvice.h"
 #import "QuysBannerAdvice.h"
+#import "GDTUnifiedBannerView.h"
+
 @interface QuysGDTBannerAdvice()<GDTUnifiedBannerViewDelegate>
 @property (nonatomic,strong) GDTUnifiedBannerView *adView;
 @property (nonatomic,strong) NSString *businessID;

@@ -25,7 +25,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor orangeColor];
     UIView *viewContain = [[UIView alloc]init];
-    viewContain.backgroundColor = [UIColor whiteColor];
+    viewContain.backgroundColor = [UIColor blueColor];
     [self.view addSubview:viewContain];
     self.viewContain=  viewContain;
     
@@ -55,7 +55,7 @@
                                                                            key:@"AA47EC3568A2B24ABEF4996A739A8291"
                                                                         cgRect:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 200)
                                                                  eventDelegate:self
-                                                                    parentView:viewContain viewController:self];
+                                                                   parentView:viewContain viewController:self];
             }
             
             if ([strService isEqualToString:@"插屏"])
@@ -85,7 +85,7 @@
            {
                self.service =  [[QuysInformationFlowAdvice alloc ]initWithID:@"quystest-xx"
                                                                           key:@"3A6511273E535FA02C15F37D17D22A95"
-                                                                       cgRect:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 200)
+                                                                       cgRect:CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, 200)
                                                                 eventDelegate:self
                                                                    parentView:viewContain viewController:self];
            }
@@ -94,7 +94,7 @@
            {
                self.service = [[QuysSplashAdvice alloc ]initWithID:@"ziyanapp_cp"
                                                                   key:@"8EB8AC0B397CA55C2D78DE88DF8587C2"
-                                                               cgRect:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 200)
+                                                               cgRect:CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width , 200)
                                                         eventDelegate:self
                                                            parentView:viewContain];
            }
@@ -134,12 +134,21 @@
                 make.height.mas_greaterThanOrEqualTo(400);
             }];
             
-            if (![self.title containsString:@"插屏"]) {
-                [self.viewContainBottom mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.top.mas_equalTo(self.adviceView.mas_bottom);
+            if ([self.title containsString:@"插屏"])
+            {
+                 
+            }else
+            {
+                [self.adviceView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.top.mas_equalTo(self.viewContain).offset(20);
                     make.left.right.mas_equalTo(self.viewContain);
-                    make.bottom.mas_equalTo(self.viewContain);
-                    make.height.mas_greaterThanOrEqualTo(100);
+                }];
+                
+                [self.viewContainBottom mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.top.mas_equalTo(self.adviceView.mas_bottom).offset(10);
+                    make.left.right.mas_equalTo(self.viewContain);
+                    make.bottom.mas_equalTo(self.viewContain).offset(-10);
+                    make.height.mas_equalTo(50);
                 }];
             }
         }
@@ -157,6 +166,13 @@
  }
  */
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    
+    
+}
 
 - (void)quys_requestStart:(QuysBaseAdvice*)service
 {

@@ -11,7 +11,7 @@
 
 #import "UIDevice+Quys_Format.h"
 #import "NSDate+Quys_Format.h"
-
+#import "UIImage+transform.h"
 #import "QuysAdConfigManager.h"
 
 

@@ -8,6 +8,7 @@
 
 #import "QuysInformationFlowAdvice.h"
 #import "QuysQYXInformationFlowAdvice.h"
+#import "QuysGDTInformationFlowAdvice.h"
 
 @interface QuysInformationFlowAdvice()<QuysSplashAdviceDelegate>
 
@@ -62,6 +63,9 @@
         
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
+        QuysGDTInformationFlowAdvice *advice = [[QuysGDTInformationFlowAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
+        advice.currentViewController = self.currentViewController;
+        self.advice = advice;
         
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
     {
@@ -94,6 +98,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_requestStart:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_requestStart:)])
     {
         [self.delegate quys_requestStart:advice];
@@ -105,6 +110,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_requestSuccess:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
     {
         [self.delegate quys_requestSuccess:advice];
@@ -117,6 +123,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_requestFial:(QuysBaseAdvice*)advice error:(NSError*)error;
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_requestFial:error:)])
        {
 
@@ -129,6 +136,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_interstitialOnExposure:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
     {
 
@@ -140,6 +148,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_interstitialOnClickAdvice:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
     {
 
@@ -150,6 +159,7 @@
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_interstitialOnAdClose:(QuysBaseAdvice*)advice
 {
+    NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
     {
         [self.delegate quys_interstitialOnAdClose:advice];

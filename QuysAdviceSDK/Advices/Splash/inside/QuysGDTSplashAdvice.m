@@ -8,7 +8,8 @@
 
 #import "QuysGDTSplashAdvice.h"
 #import "QuysSplashAdvice.h"
-#import "QuysSplashAdvice.h"
+#import <quysAdvice.h>
+#import "GDTUnifiedInterstitialAd.h"
 @interface QuysGDTSplashAdvice()<GDTUnifiedInterstitialAdDelegate>
 
 @property (nonatomic,strong) NSString *businessID;
@@ -43,8 +44,7 @@
 {
     //配置并请求数据/TODO:
 #ifdef IsReleaseVersion
-    GDTUnifiedInterstitialAd* advice = [[GDTUnifiedInterstitialAd alloc]
-                                    initWithFrame:self.cgFrame appId:self.businessID //TODO：appid
+    GDTUnifiedInterstitialAd* advice = [[GDTUnifiedInterstitialAd alloc]initWithAppId:self.businessID //TODO：appid
                                     placementId:self.bussinessKey
                                  ];
 #else

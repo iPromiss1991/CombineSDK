@@ -45,27 +45,51 @@
 
 #pragma mark - UISceneSession lifecycle
 
- -(void)quys_requestStart:(QuysBaseAdvice *)service
-{
-    
-}
-
--(void)quys_requestSuccess:(QuysBaseAdvice *)service
-{
-    
-}
-
--(void)quys_requestFial:(QuysBaseAdvice *)service error:(NSError *)error
-{
-    
-}
-
-- (void)quys_videoPlayEnd:(nonnull QuysBaseAdvice *)service {
+ /// 开始发起广告请求
+ /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
+ - (void)quys_requestStart:(QuysBaseAdvice*)advice{
      
+ }
+
+ /// 广告请求成功
+ /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
+ - (void)quys_requestSuccess:(QuysBaseAdvice*)advice{
+     
+ }
+
+ /// 广告请求失败
+ /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
+ - (void)quys_requestFial:(QuysBaseAdvice*)advice error:(NSError*)error
+{
+    
 }
 
-- (void)quys_videoPlaystart:(nonnull QuysBaseAdvice *)service {
+ /// 广告曝光
+ /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
+ - (void)quys_interstitialOnExposure:(QuysBaseAdvice*)advice{
      
+ }
+
+ /// 广告点击
+ /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
+ - (void)quys_interstitialOnClickAdvice:(QuysBaseAdvice*)advice{
+     
+ }
+
+ /// 广告关闭
+ /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
+ - (void)quys_interstitialOnAdClose:(QuysBaseAdvice*)advice{
+     
+ }
+
+- (void)quys_videoPlayEnd:(nonnull QuysBaseAdvice *)advice {
+
 }
+
+- (void)quys_videoPlaystart:(nonnull QuysBaseAdvice *)advice {
+
+}
+
+
 
 @end
