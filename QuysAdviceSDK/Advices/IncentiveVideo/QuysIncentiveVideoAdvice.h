@@ -23,7 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param delegate 回调代理
 - (instancetype)initWithID:businessID
                        key:bussinessKey
-             eventDelegate:(nonnull id<QuysIncentiveVideoAdviceDelegate>)delegate;
+             eventDelegate:(nonnull id<QuysIncentiveVideoAdviceDelegate>)delegate
+     presentViewController:(UIViewController*)presentViewController;
 
 /// 开始加载视图 & 并展示
 - (void)loadAdViewAndShow;

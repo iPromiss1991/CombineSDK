@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QuysQYXIncentiveVideoAdvice : QuysIncentiveVideoBaseAdvice
+@interface QuysGDTIncentiveVideoAdvice : QuysIncentiveVideoBaseAdvice
 
 @property (nonatomic,weak) id <QuysIncentiveVideoAdviceDelegate> delegate;//!<  服务代理
 @property (nonatomic,strong) UIView *adviceView;//!<  广告视图
@@ -23,9 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param businessID 业务ID
 /// @param bussinessKey 业务Key
 /// @param delegate 回调代理
+/// @param presentViewController 弹窗父视图（展示弹窗的容器视图）
 - (instancetype)initWithID:businessID
                        key:bussinessKey
-             eventDelegate:(id <QuysIncentiveVideoAdviceDelegate>)delegate;
+             eventDelegate:(id <QuysIncentiveVideoAdviceDelegate>)delegate
+                presentViewController:(UIViewController*)presentViewController;
 
 
 

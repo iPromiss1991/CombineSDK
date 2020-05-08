@@ -65,8 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// 广告尾帧点击
-/// @param cpClick 点击绝对坐标（相对于手机屏幕）
-/// @param reClick 点击相对坐标（相对于广告视图）
 /// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
 - (void)quys_endViewInterstitialOnClickAdvice:(QuysBaseAdvice*)advice;
 

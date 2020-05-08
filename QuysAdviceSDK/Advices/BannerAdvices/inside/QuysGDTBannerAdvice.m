@@ -54,7 +54,7 @@
     
 #endif
     adView.accessibilityIdentifier = @"banner_ad";
-    adView.animated = YES;
+    adView.animated = NO;
     adView.delegate = self;
     self.adView = adView;
     [self.parentVC.view addSubview:self.adView];

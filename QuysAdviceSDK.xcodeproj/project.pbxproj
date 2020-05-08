@@ -59,6 +59,8 @@
 		FB4252392463E43B00960FF9 /* UIImage+transform.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4252372463E43B00960FF9 /* UIImage+transform.m */; };
 		FB42523C2463E80500960FF9 /* QuysGDTInformationFlowAdvice.m in Sources */ = {isa = PBXBuildFile; fileRef = FB42523A2463E80500960FF9 /* QuysGDTInformationFlowAdvice.m */; };
 		FB42523D2463E80500960FF9 /* QuysGDTInformationFlowAdvice.h in Headers */ = {isa = PBXBuildFile; fileRef = FB42523B2463E80500960FF9 /* QuysGDTInformationFlowAdvice.h */; };
+		FB4252402464120900960FF9 /* QuysGDTIncentiveVideoAdvice.m in Sources */ = {isa = PBXBuildFile; fileRef = FB42523E2464120900960FF9 /* QuysGDTIncentiveVideoAdvice.m */; };
+		FB4252412464120900960FF9 /* QuysGDTIncentiveVideoAdvice.h in Headers */ = {isa = PBXBuildFile; fileRef = FB42523F2464120900960FF9 /* QuysGDTIncentiveVideoAdvice.h */; };
 		FB82D8EE244E997700001144 /* QuysAdviceSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FB82D8EC244E997700001144 /* QuysAdviceSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FBF1A23E244EC2A10091400E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1A23D244EC2A10091400E /* AppDelegate.m */; };
 		FBF1A244244EC2A10091400E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1A243244EC2A10091400E /* ViewController.m */; };
@@ -227,6 +229,8 @@
 		FB4252372463E43B00960FF9 /* UIImage+transform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+transform.m"; sourceTree = "<group>"; };
 		FB42523A2463E80500960FF9 /* QuysGDTInformationFlowAdvice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuysGDTInformationFlowAdvice.m; sourceTree = "<group>"; };
 		FB42523B2463E80500960FF9 /* QuysGDTInformationFlowAdvice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuysGDTInformationFlowAdvice.h; sourceTree = "<group>"; };
+		FB42523E2464120900960FF9 /* QuysGDTIncentiveVideoAdvice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuysGDTIncentiveVideoAdvice.m; sourceTree = "<group>"; };
+		FB42523F2464120900960FF9 /* QuysGDTIncentiveVideoAdvice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuysGDTIncentiveVideoAdvice.h; sourceTree = "<group>"; };
 		FB82D8E9244E997700001144 /* QuysAdviceSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuysAdviceSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB82D8EC244E997700001144 /* QuysAdviceSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuysAdviceSDK.h; sourceTree = "<group>"; };
 		FB82D8ED244E997700001144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -635,6 +639,8 @@
 				FBF1A3F32456868C0091400E /* QuysIncentiveVideoBaseAdvice.m */,
 				FBF1A3F52456868C0091400E /* QuysQYXIncentiveVideoAdvice.h */,
 				FBF1A3F42456868C0091400E /* QuysQYXIncentiveVideoAdvice.m */,
+				FB42523F2464120900960FF9 /* QuysGDTIncentiveVideoAdvice.h */,
+				FB42523E2464120900960FF9 /* QuysGDTIncentiveVideoAdvice.m */,
 			);
 			path = inside;
 			sourceTree = "<group>";
@@ -670,10 +676,10 @@
 			children = (
 				FBF1A3CB24567A5C0091400E /* QuysSplashBaseAdvice.h */,
 				FBF1A3CC24567A5C0091400E /* QuysSplashBaseAdvice.m */,
-				FB42522F2462C0C500960FF9 /* QuysGDTSplashAdvice.h */,
-				FB42522E2462C0C500960FF9 /* QuysGDTSplashAdvice.m */,
 				FBF1A3CE24567A5C0091400E /* QuysQYXSplashAdvice.h */,
 				FBF1A3CD24567A5C0091400E /* QuysQYXSplashAdvice.m */,
+				FB42522F2462C0C500960FF9 /* QuysGDTSplashAdvice.h */,
+				FB42522E2462C0C500960FF9 /* QuysGDTSplashAdvice.m */,
 			);
 			path = inside;
 			sourceTree = "<group>";
@@ -739,6 +745,7 @@
 				FBF1A34E2452D0CD0091400E /* UIDevice+Quys_Format.h in Headers */,
 				FB4252172462983400960FF9 /* GDTMobInterstitial.h in Headers */,
 				FBF1A3F72456868C0091400E /* QuysIncentiveVideoBaseAdvice.h in Headers */,
+				FB4252412464120900960FF9 /* QuysGDTIncentiveVideoAdvice.h in Headers */,
 				FB4252192462983400960FF9 /* GDTSplashAd.h in Headers */,
 				FB1A3E552459551D00B7A7D7 /* QuysAdSplashService.h in Headers */,
 				FB4252342463DC4400960FF9 /* QuysGDTOpenScreenAdvice.h in Headers */,
@@ -981,6 +988,7 @@
 				FBF1A3C72456791A0091400E /* QuysBannerBaseAdvice.m in Sources */,
 				FBF1A3D324567A5C0091400E /* QuysQYXSplashAdvice.m in Sources */,
 				FB4252392463E43B00960FF9 /* UIImage+transform.m in Sources */,
+				FB4252402464120900960FF9 /* QuysGDTIncentiveVideoAdvice.m in Sources */,
 				FBF1A3192451A4B10091400E /* QuysBaseAdvice.m in Sources */,
 				FBF1A33E24529E650091400E /* QuysAdConfigManager.m in Sources */,
 				FBF1A34F2452D0CD0091400E /* UIDevice+Quys_Format.m in Sources */,

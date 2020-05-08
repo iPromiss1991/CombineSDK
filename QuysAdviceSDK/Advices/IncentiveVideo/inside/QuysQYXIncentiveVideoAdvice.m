@@ -13,9 +13,6 @@
 @property (nonatomic,strong) NSString *businessID;
 @property (nonatomic,strong) NSString *bussinessKey;
  
-@property (nonatomic,strong) UIView *parentView;
-
- 
 @property (nonatomic,strong) QuysIncentiveVideoService *service;
 
 @end
@@ -23,14 +20,13 @@
 
 @implementation QuysQYXIncentiveVideoAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey   eventDelegate:(nonnull id<QuysIncentiveVideoAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView
+- (instancetype)initWithID:businessID key:bussinessKey   eventDelegate:(nonnull id<QuysIncentiveVideoAdviceDelegate>)delegate
 {
     if (self = [super init])
     {
         self.businessID = businessID;
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
-        self.parentView = parentView;
         [self config];
     }return self;
 }

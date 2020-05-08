@@ -185,6 +185,8 @@
         if ([self.service isKindOfClass:[QuysIncentiveVideoAdvice class]])
         {
             self.adviceView = [self.service valueForKey:@"adviceView"];
+            [self.service performSelector:@selector(loadAdViewAndShow)];
+
 
         }else
         {
@@ -241,7 +243,6 @@
                self.service = [[QuysIncentiveVideoAdvice alloc]initWithID:@"jl_qys_ios_test"
                                                                        key:@"52C4305558DA476616E2B5B02C9DD315"
                                                                eventDelegate:self  ];
-               [(QuysIncentiveVideoAdvice*)self.service loadAdViewAndShow];
            }
     }
 #else
@@ -250,8 +251,7 @@
                {
                    self.service = [[QuysIncentiveVideoAdvice alloc]initWithID:@"jlAdziyanapp"
                                                                            key:@"1262DF2885ACB4EEC8FF0486502E7A6D"
-                                                                   eventDelegate:self  ];
-                   [(QuysIncentiveVideoAdvice*)self.service loadAdViewAndShow];
+                                                                   eventDelegate:self presentViewController:self ];
                }
         }
     
