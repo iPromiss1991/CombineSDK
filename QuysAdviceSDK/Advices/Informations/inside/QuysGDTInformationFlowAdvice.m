@@ -26,7 +26,7 @@
 
 @implementation QuysGDTInformationFlowAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysInformationFlowAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView
 {
     if (self = [super init])
     {
@@ -98,11 +98,11 @@
            self.adviceView = expressView;
        }];
    }
-      if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
+      if ([self.delegate respondsToSelector:@selector(quys_InformationFlowRequestSuccess:)])
        {
            QuysInformationFlowAdvice *advice = [self buildAdvice];
            advice.adviceView = self.adviceView;
-           [self.delegate quys_requestSuccess:advice];
+           [self.delegate quys_InformationFlowRequestSuccess:advice];
            
        }
 }
@@ -120,10 +120,10 @@
  */
 - (void)nativeExpressAdFailToLoad:(GDTNativeExpressAd *)nativeExpressAd error:(NSError *)error
 {
-    if ([self.delegate respondsToSelector:@selector(quys_requestFial:error:)])
+    if ([self.delegate respondsToSelector:@selector(quys_InformationFlowRequestFial:error:)])
     {
         QuysInformationFlowAdvice *advice = [self buildAdvice];
-        [self.delegate quys_requestFial:advice error:error];
+        [self.delegate quys_InformationFlowRequestFial:advice error:error ];
     }
  }
 
@@ -134,10 +134,10 @@
 
 - (void)nativeExpressAdViewClicked:(GDTNativeExpressAdView *)nativeExpressAdView
 {
-         if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
+         if ([self.delegate respondsToSelector:@selector(quys_InformationFlowOnClickAdvice:)])
              {
                  QuysInformationFlowAdvice *advice = [self buildAdvice];
-                 [self.delegate quys_interstitialOnClickAdvice:advice];
+                 [self.delegate quys_InformationFlowOnClickAdvice:advice];
              }
     
 }
@@ -146,10 +146,10 @@
 {
     [self.adviceView removeFromSuperview];
     self.adviceView = nil;
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
+    if ([self.delegate respondsToSelector:@selector(quys_InformationFlowOnAdClose:)])
     {
         QuysInformationFlowAdvice *advice = [self buildAdvice];
-        [self.delegate quys_interstitialOnAdClose:advice];
+        [self.delegate quys_InformationFlowOnAdClose:advice];
     }
 
  
@@ -157,10 +157,10 @@
 
 - (void)nativeExpressAdViewExposure:(GDTNativeExpressAdView *)nativeExpressAdView
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
+    if ([self.delegate respondsToSelector:@selector(quys_InformationFlowOnExposure:)])
     {
         QuysInformationFlowAdvice *advice = [self buildAdvice];
-        [self.delegate quys_interstitialOnExposure:advice ];
+        [self.delegate quys_InformationFlowOnExposure:advice ];
     }
 }
 

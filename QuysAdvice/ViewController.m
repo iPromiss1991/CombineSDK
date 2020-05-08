@@ -44,74 +44,74 @@
     
     [super updateViewConstraints];
 }
-
--(void)quys_requestStart:(QuysBaseAdvice *)advice
-{
-    NSLog(@"%s",__FUNCTION__);
-}
-
-- (void)quys_requestSuccess:(QuysBaseAdvice *)advice
-{
-    if ([self.advice isKindOfClass:[QuysIncentiveVideoAdvice class]])
-      {
-          self.adView = [self.advice valueForKey:@"adviceView"];
-
-      }else
-      {
-          [self.advice performSelector:@selector(showAdView)];
-          self.adView = [self.advice valueForKey:@"adviceView"];
-                
-      }    self.hidenAdvice = NO;
-
-    [self.view setNeedsUpdateConstraints];
-    [self.view updateConstraintsIfNeeded];
-}
-
-- (void)quys_interstitialOnAdClose:(QuysBaseAdvice *)advice
-{
-    self.hidenAdvice = YES;
-    
-    [self.view setNeedsUpdateConstraints];
-    [self.view updateConstraintsIfNeeded];
-}
-- (void)quys_requestFial:(QuysBaseAdvice *)advice error:(NSError *)error
-{
-    
-}
-
--(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [super touchesEnded:touches withEvent:event];
-    
-//    QuysIncentiveVideoAdvice *advice = [[QuysIncentiveVideoAdvice alloc]initWithID:@"jlAdziyanapp"
-//            key:@"1262DF2885ACB4EEC8FF0486502E7A6D"
-//    eventDelegate:self  ];
-//    self.advice = advice;
-//    [(QuysIncentiveVideoAdvice*)self.advice loadAdViewAndShow];
-    
-    
-    
-//    [self.banner performSelector:@selector(loadAdViewNow)];
-//    self.hidenAdvice = NO;
-//    if (self.adView.superview == nil)
+//
+//-(void)quys_requestStart:(QuysBaseAdvice *)advice
+//{
+//    NSLog(@"%s",__FUNCTION__);
+//}
+//
+//- (void)quys_requestSuccess:(QuysBaseAdvice *)advice
+//{
+//    if ([self.advice isKindOfClass:[QuysIncentiveVideoAdvice class]])
+//      {
+//          self.adView = [self.advice valueForKey:@"adviceView"];
+//
+//      }else
+//      {
+//          [self.advice performSelector:@selector(showAdView)];
+//          self.adView = [self.advice valueForKey:@"adviceView"];
+//                
+//      }    self.hidenAdvice = NO;
+//
+//    [self.view setNeedsUpdateConstraints];
+//    [self.view updateConstraintsIfNeeded];
+//}
+//
+//- (void)quys_interstitialOnAdClose:(QuysBaseAdvice *)advice
+//{
+//    self.hidenAdvice = YES;
+//    
+//    [self.view setNeedsUpdateConstraints];
+//    [self.view updateConstraintsIfNeeded];
+//}
+//- (void)quys_requestFial:(QuysBaseAdvice *)advice error:(NSError *)error
+//{
+//    
+//}
+//
+//-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    [super touchesEnded:touches withEvent:event];
+//    
+////    QuysIncentiveVideoAdvice *advice = [[QuysIncentiveVideoAdvice alloc]initWithID:@"jlAdziyanapp"
+////            key:@"1262DF2885ACB4EEC8FF0486502E7A6D"
+////    eventDelegate:self  ];
+////    self.advice = advice;
+////    [(QuysIncentiveVideoAdvice*)self.advice loadAdViewAndShow];
+//    
+//    
+//    
+////    [self.banner performSelector:@selector(loadAdViewNow)];
+////    self.hidenAdvice = NO;
+////    if (self.adView.superview == nil)
+////    {
+////        [self.view addSubview:self.adView];
+////    }
+//    
+//    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]])
 //    {
-//        [self.view addSubview:self.adView];
-//    }
-    
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]])
-    {
-         
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mqq://"]];
-        
-        
-    };
-
-    [self.view setNeedsUpdateConstraints];
-    [self.view updateConstraintsIfNeeded];
-
-}
-
+//         
+//        
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mqq://"]];
+//        
+//        
+//    };
+//
+//    [self.view setNeedsUpdateConstraints];
+//    [self.view updateConstraintsIfNeeded];
+//
+//}
+//
 
 
 @end

@@ -88,77 +88,78 @@
 }
  
 
+
 #pragma mark - QuysAdSplashDelegate
 
 // 开始发起广告请求
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_requestStart:(QuysBaseAdvice*)advice
+/// @param advice 广告请求服务类
+- (void)quys_SplashRequestStart:(QuysSplashAdvice*)advice
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_requestStart:)])
+    if ([self.delegate respondsToSelector:@selector(quys_SplashRequestStart:)])
     {
-        [self.delegate quys_requestStart:advice];
+        [self.delegate quys_SplashRequestStart:advice];
         
     }
 }
 
 /// 广告请求成功
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_requestSuccess:(QuysBaseAdvice*)advice
+/// @param advice 广告请求服务类
+- (void)quys_SplashRequestSuccess:(QuysSplashAdvice*)advice
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
+    if ([self.delegate respondsToSelector:@selector(quys_SplashRequestSuccess:)])
     {
-        [self.delegate quys_requestSuccess:advice];
+        [self.delegate quys_SplashRequestSuccess:advice];
         
     }
 }
 
 
 /// 广告请求失败
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_requestFial:(QuysBaseAdvice*)advice error:(NSError*)error;
+/// @param advice 广告请求服务类
+- (void)quys_SplashRequestFial:(QuysSplashAdvice*)advice error:(NSError*)error;
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_requestFial:error:)])
+    if ([self.delegate respondsToSelector:@selector(quys_SplashRequestFial:error:)])
        {
 
-           [self.delegate quys_requestFial:advice error:error];
+           [self.delegate quys_SplashRequestFial:advice error:error];
            
        }
 }
 
 /// 广告曝光
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_interstitialOnExposure:(QuysBaseAdvice*)advice
+/// @param advice 广告请求服务类
+- (void)quys_SplashOnExposure:(QuysSplashAdvice*)advice
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
+    if ([self.delegate respondsToSelector:@selector(quys_SplashOnExposure:)])
     {
 
-        [self.delegate quys_interstitialOnExposure:advice];
+        [self.delegate quys_SplashOnExposure:advice];
     }
 }
 
 /// 广告点击
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_interstitialOnClickAdvice:(QuysBaseAdvice*)advice
+/// @param advice 广告请求服务类
+- (void)quys_SplashOnClickAdvice:(QuysSplashAdvice*)advice
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
+    if ([self.delegate respondsToSelector:@selector(quys_SplashOnClickAdvice:)])
     {
 
-        [self.delegate quys_interstitialOnClickAdvice:advice];
+        [self.delegate quys_SplashOnClickAdvice:advice];
     }
 }
 /// 广告关闭
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_interstitialOnAdClose:(QuysBaseAdvice*)advice
+/// @param advice 广告请求服务类
+- (void)quys_SplashOnAdClose:(QuysSplashAdvice*)advice
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
+    if ([self.delegate respondsToSelector:@selector(quys_SplashOnAdClose:)])
     {
-        [self.delegate quys_interstitialOnAdClose:advice];
+        [self.delegate quys_SplashOnAdClose:advice];
     }
 }
 

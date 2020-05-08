@@ -6,11 +6,14 @@
 //  Copyright © 2019 Quys. All rights reserved. 
 //
 
-#import "QuysBaseAdvice.h"
+
+#import <Foundation/Foundation.h>
 #import "QuysOpenScreenAdviceDelegate.h"
+#import <UIKit/UIKit.h>
+
 NS_ASSUME_NONNULL_BEGIN
 /// 开屏广告服务
-@interface QuysOpenScreenAdvice : QuysBaseAdvice
+@interface QuysOpenScreenAdvice : NSObject
 @property (nonatomic,weak) id <QuysOpenScreenAdviceDelegate> delegate;//!<  服务代理
 @property (nonatomic,strong) UIWindow *adviceView;//!<  广告
 

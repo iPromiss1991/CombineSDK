@@ -46,6 +46,12 @@
     advice.videoMuted = NO;
     advice.delegate = self;
     [advice loadAd];
+   //发起请求
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoRequestStart:)])
+    {
+        QuysIncentiveVideoAdvice *advice = [self buildAdvice];
+         [self.delegate quys_IncentiveVideoRequestStart:advice];
+    }
     self.advice = advice;
     
 }
@@ -69,11 +75,11 @@
 - (void)gdt_rewardVideoAdDidLoad:(GDTRewardVideoAd *)rewardedVideoAd
 {
     [self loadAdViewAndShow];
-      if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoLoadSuccess:)])
+      if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoRequestSuccess:)])
            {
                QuysIncentiveVideoAdvice *advice = [self buildAdvice];
                advice.adviceView = self.adviceView;
-               [self.delegate quys_IncentiveVideoLoadSuccess:advice];
+               [self.delegate quys_IncentiveVideoRequestSuccess:advice];
                
            }
     }
@@ -96,10 +102,10 @@
 //    NSLog(@"%s",__FUNCTION__);
 //    NSLog(@"广告已曝光");
     
-      if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
+      if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoOnExposure:)])
            {
                QuysIncentiveVideoAdvice *advice = [self buildAdvice];
-                [self.delegate quys_interstitialOnExposure:advice];
+                [self.delegate quys_IncentiveVideoOnExposure:advice];
                
            }
 }
@@ -109,10 +115,10 @@
 //    NSLog(@"%s",__FUNCTION__);
 ////    广告关闭后释放ad对象
 //    NSLog(@"广告已关闭");
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoOnAdClose:)])
          {
              QuysIncentiveVideoAdvice *advice = [self buildAdvice];
-              [self.delegate quys_interstitialOnExposure:advice];
+              [self.delegate quys_IncentiveVideoOnAdClose:advice];
              
          }
 }
@@ -122,10 +128,10 @@
 {
 //    NSLog(@"%s",__FUNCTION__);
 //    NSLog(@"广告已点击");
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoOnClickAdvice:)])
          {
              QuysIncentiveVideoAdvice *advice = [self buildAdvice];
-              [self.delegate quys_interstitialOnClickAdvice:advice];
+              [self.delegate quys_IncentiveVideoOnClickAdvice:advice];
              
          }
 }
@@ -154,10 +160,10 @@
 //        NSLog(@"网络连接超时");
 //    }
 //    NSLog(@"ERROR: %@", error);
-    if ([self.delegate respondsToSelector:@selector(quys_requestFial:error:)])
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoRequestFial:error:)])
     {
         QuysIncentiveVideoAdvice *advice = [self buildAdvice];
-         [self.delegate quys_requestFial:advice error:error];
+         [self.delegate quys_IncentiveVideoRequestFial:advice error:error ];
         
     }
 }

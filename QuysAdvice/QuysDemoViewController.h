@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QuysDemoViewController : UIViewController<QuysSplashAdviceDelegate,QuysIncentiveVideoAdviceDelegate>
+@interface QuysDemoViewController : UIViewController<QuysSplashAdviceDelegate,QuysIncentiveVideoAdviceDelegate,QuysIncentiveVideoAdviceDelegate,QuysInformationFlowAdviceDelegate,QuysBannerAdviceDelegate>
 
 @end
 

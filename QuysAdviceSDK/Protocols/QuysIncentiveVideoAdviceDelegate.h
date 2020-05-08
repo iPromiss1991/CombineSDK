@@ -7,70 +7,49 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QuysBaseAdviceDelegate.h"
+@class QuysIncentiveVideoAdvice;
 
 NS_ASSUME_NONNULL_BEGIN
-///激励视频广告协议（请遵循协议）
-@protocol QuysIncentiveVideoAdviceDelegate <QuysBaseAdviceDelegate>
+///激励视频广告协议 
+@protocol QuysIncentiveVideoAdviceDelegate<NSObject>
 @optional
 
-/// 广告加载成功
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_IncentiveVideoLoadSuccess:(QuysBaseAdvice*)advice;
+@optional
 
-/// 广告加载失败
-/// @param error 广告加载失败错误
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_IncentiveVideoLoadFail:(NSError *)error advice:(QuysBaseAdvice*)advice;
+/// 开始发起广告请求
+/// @param advice 广告请求服务类
+- (void)quys_IncentiveVideoRequestStart:(QuysIncentiveVideoAdvice*)advice;
+
+/// 广告请求成功
+/// @param advice 广告请求服务类
+- (void)quys_IncentiveVideoRequestSuccess:(QuysIncentiveVideoAdvice*)advice;
+
+/// 广告请求失败
+/// @param advice 广告请求服务类
+/// @param error 失败信息
+- (void)quys_IncentiveVideoRequestFial:(QuysIncentiveVideoAdvice*)advice error:(NSError*)error;
+
+/// 广告曝光
+/// @param advice 广告请求服务类
+- (void)quys_IncentiveVideoOnExposure:(QuysIncentiveVideoAdvice*)advice;
+
+/// 广告点击
+/// @param advice 广告请求服务类
+- (void)quys_IncentiveVideoOnClickAdvice:(QuysIncentiveVideoAdvice*)advice;
+
+/// 广告关闭
+/// @param advice 广告请求服务类
+- (void)quys_IncentiveVideoOnAdClose:(QuysIncentiveVideoAdvice*)advice;
 
 /// 广告开始播放
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_IncentiveVideoPlaystart:(QuysBaseAdvice*)advice;
+/// @param advice 广告请求服务类
+- (void)quys_IncentiveVideoPlaystart:(QuysIncentiveVideoAdvice*)advice;
 
 /// 广告播放结束
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_IncentiveVideoPlayEnd:(QuysBaseAdvice*)advice;
+/// @param advice 广告请求服务类
+- (void)quys_IncentiveVideoPlayEnd:(QuysIncentiveVideoAdvice*)advice;
 
-/// 跳过广告
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_IncentiveVideoSkip:(QuysBaseAdvice*)advice;
-
-/// 广告静音
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_IncentiveVideoMuteplay:(QuysBaseAdvice*)advice;
-
-/// 广告取消静音
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_IncentiveVideoUnMuteplay:(QuysBaseAdvice*)advice;
-
-/// 广告暂停
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_IncentiveVideoSuspend:(QuysBaseAdvice*)advice;
-
-/// 广告继续播放
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_IncentiveVideoResume:(QuysBaseAdvice*)advice;
-
-
-/// 广告播放进度
-/// @param progress 广告播放进度
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_IncentiveVideoPlayProgress:(NSInteger)progress advice:(QuysBaseAdvice*)advice;
-
-
-//尾帧
-/// 广告尾帧曝光
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_endViewInterstitialOnExposure:(QuysBaseAdvice*)advice;
-
-
-/// 广告尾帧点击
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_endViewInterstitialOnClickAdvice:(QuysBaseAdvice*)advice;
-
-/// 广告尾帧关闭
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_endViewInterstitialOnAdClose:(QuysBaseAdvice*)advice;
+    
 
 @end
 

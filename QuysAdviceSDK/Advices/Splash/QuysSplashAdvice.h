@@ -7,12 +7,13 @@
 //
 
 #import "QuysSplashAdviceDelegate.h"
-#import "QuysBaseAdvice.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 NS_ASSUME_NONNULL_BEGIN
 /// banner广告服务（外界调用）
-@interface QuysSplashAdvice : QuysBaseAdvice
+@interface QuysSplashAdvice : NSObject
 @property (nonatomic,weak) id <QuysSplashAdviceDelegate> delegate;//!<  服务代理
 @property (nonatomic,strong) UIView *adviceView;//!<  广告视图
 

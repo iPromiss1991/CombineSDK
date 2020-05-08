@@ -7,14 +7,14 @@
 //
 
 #import "QuysBannerBaseAdvice.h"
-#import "QuysSplashAdviceDelegate.h"
+#import "QuysBannerAdviceDelegate.h"
 #import <quysAdvice.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QuysQYXBannerAdvice : QuysBannerBaseAdvice
 
-@property (nonatomic,weak) id <QuysSplashAdviceDelegate> delegate;//!<  服务代理
+@property (nonatomic,weak) id <QuysBannerAdviceDelegate> delegate;//!<  服务代理
 @property (nonatomic,strong) UIView *adviceView;//!<  广告视图
 
 
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithID:businessID
                        key:bussinessKey
                     cgRect:(CGRect)frame
-             eventDelegate:(id <QuysSplashAdviceDelegate>)delegate
+             eventDelegate:(id <QuysBannerAdviceDelegate>)delegate
                 parentViewController:(UIViewController*)parentVC;
 
 

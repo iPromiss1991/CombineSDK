@@ -22,7 +22,7 @@
 
 
 @implementation QuysGDTBannerAdvice
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentViewController:(nonnull UIViewController *)parentVC
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysBannerAdviceDelegate>)delegate parentViewController:(nonnull UIViewController *)parentVC
 {
     if (self = [super init])
     {
@@ -87,11 +87,11 @@
  */
 - (void)unifiedBannerViewDidLoad:(GDTUnifiedBannerView *)unifiedBannerView
 {
-     if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
+     if ([self.delegate respondsToSelector:@selector(quys_BannerRequestSuccess:)])
      {
          QuysBannerAdvice *advice = [self buildAdvice];
          advice.adviceView = unifiedBannerView;
-         [self.delegate quys_requestSuccess:advice];
+         [self.delegate quys_BannerRequestSuccess:advice];
          
      }
 
@@ -105,10 +105,10 @@
 - (void)unifiedBannerViewFailedToLoad:(GDTUnifiedBannerView *)unifiedBannerView error:(NSError *)error
 {
      
-    if ([self.delegate respondsToSelector:@selector(quys_requestFial:error:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerRequestFial:error:)])
        {
            QuysBannerAdvice *advice = [self buildAdvice];
-           [self.delegate quys_requestFial:advice error:error];
+           [self.delegate quys_BannerRequestFial:advice error:error];
        }
 }
 
@@ -117,10 +117,10 @@
  */
 - (void)unifiedBannerViewWillExpose:(nonnull GDTUnifiedBannerView *)unifiedBannerView {
      
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerOnExposure:)])
     {
         QuysBannerAdvice *advice = [self buildAdvice];
-        [self.delegate quys_interstitialOnExposure:advice];
+        [self.delegate quys_BannerOnExposure:advice];
     }
 }
 
@@ -130,10 +130,10 @@
 - (void)unifiedBannerViewClicked:(GDTUnifiedBannerView *)unifiedBannerView
 {
      
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerOnClickAdvice:)])
        {
            QuysBannerAdvice *advice = [self buildAdvice];
-           [self.delegate quys_interstitialOnClickAdvice:advice];
+           [self.delegate quys_BannerOnClickAdvice:advice];
        }
 }
 
@@ -185,10 +185,10 @@
 {
     self.adView = nil;
      
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerOnAdClose:)])
        {
            QuysBannerAdvice *advice = [self buildAdvice];
-           [self.delegate quys_interstitialOnAdClose:advice];
+           [self.delegate quys_BannerOnAdClose:advice];
        }
 }
 

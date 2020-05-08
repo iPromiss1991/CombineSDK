@@ -6,14 +6,14 @@
 //  Copyright © 2019 Quys. All rights reserved. 
 //
 
-#import "QuysSplashAdviceDelegate.h"
-#import "QuysBaseAdvice.h"
-
+#import "QuysBannerAdviceDelegate.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 /// banner广告服务（外界调用）
-@interface QuysBannerAdvice : QuysBaseAdvice
-@property (nonatomic,weak) id <QuysSplashAdviceDelegate> delegate;//!<  服务代理
+@interface QuysBannerAdvice : NSObject
+@property (nonatomic,weak) id <QuysBannerAdviceDelegate> delegate;//!<  服务代理
 @property (nonatomic,strong) UIView *adviceView;//!<  广告视图
 
 
@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithID:businessID
                        key:bussinessKey
                     cgRect:(CGRect)frame
-             eventDelegate:(id <QuysSplashAdviceDelegate>)delegate
+             eventDelegate:(id <QuysBannerAdviceDelegate>)delegate
  viewController:(UIViewController*)currentViewController;
 
 /// 开始加载视图 & 并展示

@@ -10,7 +10,7 @@
 #import "QuysQYXBannerAdvice.h"
 #import "QuysGDTBannerAdvice.h"
 
-@interface QuysBannerAdvice()<QuysSplashAdviceDelegate>
+@interface QuysBannerAdvice()<QuysBannerAdviceDelegate>
 
 @property (nonatomic,strong) NSString *businessID;
 @property (nonatomic,strong) NSString *bussinessKey;
@@ -25,7 +25,7 @@
 
 @implementation QuysBannerAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate  viewController:(UIViewController*)currentViewController
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysBannerAdviceDelegate>)delegate  viewController:(UIViewController*)currentViewController
 {
     if (self = [super init])
     {
@@ -81,74 +81,74 @@
 #pragma mark - QuysAdSplashDelegate
 
 // 开始发起广告请求
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_requestStart:(QuysBaseAdvice*)advice
+/// @param advice 广告请求服务类
+- (void)quys_BannerRequestStart:(QuysBannerAdvice*)advice
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_requestStart:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerRequestStart:)])
     {
-        [self.delegate quys_requestStart:advice];
+        [self.delegate quys_BannerRequestStart:advice];
         
     }
 }
 
 /// 广告请求成功
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_requestSuccess:(QuysBaseAdvice*)advice
+/// @param advice 广告请求服务类
+- (void)quys_BannerRequestSuccess:(QuysBannerAdvice*)advice
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerRequestSuccess:)])
     {
-        [self.delegate quys_requestSuccess:advice];
+        [self.delegate quys_BannerRequestSuccess:advice];
         
     }
 }
 
 
 /// 广告请求失败
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_requestFial:(QuysBaseAdvice*)advice error:(NSError*)error;
+/// @param advice 广告请求服务类
+- (void)quys_BannerRequestFial:(QuysBannerAdvice*)advice error:(NSError*)error;
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_requestFial:error:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerRequestFial:error:)])
        {
 
-           [self.delegate quys_requestFial:advice error:error];
+           [self.delegate quys_BannerRequestFial:advice error:error ];
            
        }
 }
 
 /// 广告曝光
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_interstitialOnExposure:(QuysBaseAdvice*)advice
+/// @param advice 广告请求服务类
+- (void)quys_BannerOnExposure:(QuysBannerAdvice*)advice
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerOnExposure:)])
     {
 
-        [self.delegate quys_interstitialOnExposure:advice];
+        [self.delegate quys_BannerOnExposure:advice];
     }
 }
 
 /// 广告点击
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_interstitialOnClickAdvice:(QuysBaseAdvice*)advice
+/// @param advice 广告请求服务类
+- (void)quys_BannerOnClickAdvice:(QuysBannerAdvice*)advice
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerOnClickAdvice:)])
     {
 
-        [self.delegate quys_interstitialOnClickAdvice:advice];
+        [self.delegate quys_BannerOnClickAdvice:advice];
     }
 }
 /// 广告关闭
-/// @param advice 广告请求服务基类（实际接收时转换为响应的类即可）
-- (void)quys_interstitialOnAdClose:(QuysBaseAdvice*)advice
+/// @param advice 广告请求服务类
+- (void)quys_BannerOnAdClose:(QuysBannerAdvice*)advice
 {
     NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerOnAdClose:)])
     {
-        [self.delegate quys_interstitialOnAdClose:advice];
+        [self.delegate quys_BannerOnAdClose:advice];
     }
 }
 

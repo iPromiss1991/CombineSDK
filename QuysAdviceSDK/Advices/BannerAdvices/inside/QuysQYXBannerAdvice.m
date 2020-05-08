@@ -24,7 +24,7 @@
 
 @implementation QuysQYXBannerAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate                parentViewController:(UIViewController*)parentVC
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysBannerAdviceDelegate>)delegate                parentViewController:(UIViewController*)parentVC
 {
     if (self = [super init])
     {
@@ -70,73 +70,73 @@
 #pragma mark - QuysAdSplashDelegate
 
 /// 开始发起广告请求
-/// @param service 广告请求服务基类（实际接收时转换为响应的类即可）
+/// @param service 广告请求服务类
 - (void)quys_requestStart:(QuysAdBaseService*)service
 {
-    if ([self.delegate respondsToSelector:@selector(quys_requestStart:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerRequestStart:)])
     {
         QuysBannerAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_requestStart:advice];
+        [self.delegate quys_BannerRequestStart:advice];
         
     }
 }
 
 /// 广告请求成功
-/// @param service 广告请求服务基类（实际接收时转换为响应的类即可）
+/// @param service 广告请求服务类
 - (void)quys_requestSuccess:(QuysAdBaseService*)service
 {
-    if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerRequestSuccess:)])
     {
         QuysBannerAdvice *advice = [self buildAdvice:service];
         QuysAdBannerService *serviceItem = (QuysAdBannerService*)service;
         advice.adviceView = serviceItem.adviceView;
-        [self.delegate quys_requestSuccess:advice];
+        [self.delegate quys_BannerRequestSuccess:advice];
         
     }
 }
 
 
 /// 广告请求失败
-/// @param service 广告请求服务基类（实际接收时转换为响应的类即可）
+/// @param service 广告请求服务类
 - (void)quys_requestFial:(QuysAdBaseService*)service error:(NSError*)error;
 {
-    if ([self.delegate respondsToSelector:@selector(quys_requestFial:error:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerRequestFial:error:)])
        {
            QuysBannerAdvice *advice = [self buildAdvice:service];
-           [self.delegate quys_requestFial:advice error:error];
+           [self.delegate quys_BannerRequestFial:advice error:error];
            
        }
 }
 
 /// 广告曝光
-/// @param service 广告请求服务基类（实际接收时转换为响应的类即可）
+/// @param service 广告请求服务类
 - (void)quys_interstitialOnExposure:(QuysAdBaseService*)service
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerOnExposure:)])
     {
         QuysBannerAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_interstitialOnExposure:advice];
+        [self.delegate quys_BannerOnExposure:advice];
     }
 }
 
 /// 广告点击
-/// @param service 广告请求服务基类（实际接收时转换为响应的类即可）
+/// @param service 广告请求服务类
 - (void)quys_interstitialOnClick:(CGPoint)cpClick  relativeClickPoint:(CGPoint)reClick service:(QuysAdBaseService*)service;
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerOnClickAdvice:)])
     {
         QuysBannerAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_interstitialOnClickAdvice:advice];
+        [self.delegate quys_BannerOnClickAdvice:advice];
     }
 }
 /// 广告关闭
-/// @param service 广告请求服务基类（实际接收时转换为响应的类即可）
+/// @param service 广告请求服务类
 - (void)quys_interstitialOnAdClose:(QuysAdBaseService*)service
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
+    if ([self.delegate respondsToSelector:@selector(quys_BannerOnAdClose:)])
     {
         QuysBannerAdvice *advice = [self buildAdvice:service];
-        [self.delegate quys_interstitialOnAdClose:advice];
+        [self.delegate quys_BannerOnAdClose:advice];
     }
 }
 

@@ -81,10 +81,10 @@
 
 - (void)splashAdDidLoad:(GDTSplashAd *)splashAd
 {
-    if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
+    if ([self.delegate respondsToSelector:@selector(quys_OpenScreenRequestStart:)])
     {
         QuysOpenScreenAdvice *advice = [self buildAdvice];
-        [self.delegate quys_requestSuccess:advice];
+        [self.delegate quys_OpenScreenRequestStart:advice];
         
     }
 }
@@ -100,19 +100,19 @@
 
 - (void)splashAdExposured:(GDTSplashAd *)splashAd
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
+    if ([self.delegate respondsToSelector:@selector(quys_OpenScreenOnExposure:)])
              {
                  QuysOpenScreenAdvice *advice = [self buildAdvice];
-                 [self.delegate quys_interstitialOnExposure:advice ];
+                 [self.delegate quys_OpenScreenOnExposure:advice ];
              }
 }
 
 - (void)splashAdClicked:(GDTSplashAd *)splashAd
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
+    if ([self.delegate respondsToSelector:@selector(quys_OpenScreenOnClickAdvice:)])
     {
         QuysOpenScreenAdvice *advice = [self buildAdvice];
-        [self.delegate quys_interstitialOnClickAdvice:advice];
+        [self.delegate quys_OpenScreenOnClickAdvice:advice];
     }
 }
 
@@ -127,10 +127,10 @@
 
 - (void)splashAdClosed:(GDTSplashAd *)splashAd
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
+    if ([self.delegate respondsToSelector:@selector(quys_OpenScreenOnAdClose:)])
        {
            QuysOpenScreenAdvice *advice = [self buildAdvice];
-           [self.delegate quys_interstitialOnAdClose:advice];
+           [self.delegate quys_OpenScreenOnAdClose:advice];
        }
    self.advice = nil;
 }

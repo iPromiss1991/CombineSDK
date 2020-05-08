@@ -86,10 +86,10 @@
 
 - (void)unifiedInterstitialSuccessToLoadAd:(GDTUnifiedInterstitialAd *)unifiedInterstitial
 {
-     if ([self.delegate respondsToSelector:@selector(quys_requestSuccess:)])
+     if ([self.delegate respondsToSelector:@selector(quys_SplashRequestSuccess:)])
      {
          QuysSplashAdvice *advice = [self buildAdvice];
-         [self.delegate quys_requestSuccess:advice];
+         [self.delegate quys_SplashRequestSuccess:advice];
          
      }
 
@@ -97,37 +97,37 @@
 
 - (void)unifiedInterstitialFailToLoadAd:(GDTUnifiedInterstitialAd *)unifiedInterstitial error:(NSError *)error
 {
-    if ([self.delegate respondsToSelector:@selector(quys_requestFial:error:)])
+    if ([self.delegate respondsToSelector:@selector(quys_SplashRequestFial:error:)])
           {
               QuysSplashAdvice *advice = [self buildAdvice];
-              [self.delegate quys_requestFial:advice error:error];
+              [self.delegate quys_SplashRequestFial:advice error:error];
           }
 }
 
 - (void)unifiedInterstitialWillExposure:(GDTUnifiedInterstitialAd *)unifiedInterstitial
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnExposure:)])
+    if ([self.delegate respondsToSelector:@selector(quys_SplashOnExposure:)])
           {
               QuysSplashAdvice *advice = [self buildAdvice];
-              [self.delegate quys_interstitialOnExposure:advice ];
+              [self.delegate quys_SplashOnExposure:advice ];
           }
 }
 
 - (void)unifiedInterstitialClicked:(GDTUnifiedInterstitialAd *)unifiedInterstitial
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnClickAdvice:)])
+    if ([self.delegate respondsToSelector:@selector(quys_SplashOnClickAdvice:)])
          {
              QuysSplashAdvice *advice = [self buildAdvice];
-             [self.delegate quys_interstitialOnClickAdvice:advice];
+             [self.delegate quys_SplashOnClickAdvice:advice];
          }
 }
 
 - (void)unifiedInterstitialAdDidDismissFullScreenModal:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
 {
-    if ([self.delegate respondsToSelector:@selector(quys_interstitialOnAdClose:)])
+    if ([self.delegate respondsToSelector:@selector(quys_SplashOnAdClose:)])
        {
            QuysSplashAdvice *advice = [self buildAdvice];
-           [self.delegate quys_interstitialOnAdClose:advice];
+           [self.delegate quys_SplashOnAdClose:advice];
        }
 }
 

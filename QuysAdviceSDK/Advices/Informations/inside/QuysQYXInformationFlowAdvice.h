@@ -7,14 +7,14 @@
 //
 
 #import "QuysInformationFlowBaseAdvice.h"
-#import "QuysSplashAdviceDelegate.h"
+#import "QuysInformationFlowAdviceDelegate.h"
 #import <quysAdvice.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QuysQYXInformationFlowAdvice : QuysInformationFlowBaseAdvice
 
-@property (nonatomic,weak) id <QuysSplashAdviceDelegate> delegate;//!<  服务代理
+@property (nonatomic,weak) id <QuysInformationFlowAdviceDelegate> delegate;//!<  服务代理
 @property (nonatomic,strong) UIView *adviceView;//!<  广告视图
 
 
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithID:businessID
                        key:bussinessKey
                     cgRect:(CGRect)frame
-             eventDelegate:(id <QuysSplashAdviceDelegate>)delegate
+             eventDelegate:(id <QuysInformationFlowAdviceDelegate>)delegate
                 parentView:(UIView*)parentView;
 
 
