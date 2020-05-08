@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param advice 广告请求服务类
 - (void)quys_InformationFlowRequestStart:(QuysInformationFlowAdvice*)advice;
 
-/// 广告请求成功
+/// 广告请求成功（eg：建议在该方法中或者之后再   展示广告）
 /// @param advice 广告请求服务类
 - (void)quys_InformationFlowRequestSuccess:(QuysInformationFlowAdvice*)advice;
 
