@@ -14,9 +14,8 @@
 
 @property (nonatomic,strong) NSString *businessID;
 @property (nonatomic,strong) NSString *bussinessKey;
-@property (nonatomic,assign) CGRect cgFrame;
 
-@property (nonatomic,strong) UIView *parentView;
+@property (nonatomic,strong) UIViewController *parentViewController;
  
 @property (nonatomic,strong) QuysSplashBaseAdvice *advice;
 
@@ -25,15 +24,14 @@
 
 @implementation QuysSplashAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView 
+- (instancetype)initWithID:businessID key:bussinessKey  eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentViewController:(nonnull UIViewController *)parentViewController
 {
     if (self = [super init])
     {
         self.businessID = businessID;
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
-        self.parentView = parentView;
-        self.cgFrame = cgFrame;
+        self.parentViewController = parentViewController;
          [self config];
     }return self;
 }
@@ -48,7 +46,7 @@
     QuysAdconfigResponseModelDataItemAdviceInfo* adviceInfo = [manager getAdviceByType:QuysConfigAdviceTypeBanner];
     if ([adviceInfo.channelName isEqualToString:k_qys_sdk])
     {
-        QuysQYXSplashAdvice *advice = [[QuysQYXSplashAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
+        QuysQYXSplashAdvice *advice = [[QuysQYXSplashAdvice alloc] initWithID:self.businessID key:self.bussinessKey  eventDelegate:self parentViewController:self.parentViewController];
         self.advice = advice;
     }else if ([adviceInfo.channelName isEqualToString:k_ks_sdk])
     {
@@ -61,7 +59,7 @@
         
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
-        QuysGDTSplashAdvice *advice = [[QuysGDTSplashAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
+        QuysGDTSplashAdvice *advice = [[QuysGDTSplashAdvice alloc] initWithID:self.businessID key:self.bussinessKey  eventDelegate:self parentViewController:self.parentViewController];
         self.advice = advice;
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
     {

@@ -16,7 +16,7 @@
 @property (nonatomic,strong) NSString *bussinessKey;
 @property (nonatomic,assign) CGRect cgFrame;
 
-@property (nonatomic,strong) UIView *parentView;
+@property (nonatomic,strong) UIViewController *parentViewController;
 @property (nonatomic,strong) GDTUnifiedInterstitialAd *advice;
 
 @end
@@ -24,15 +24,14 @@
 
 @implementation QuysGDTSplashAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView
+- (instancetype)initWithID:businessID key:bussinessKey  eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentViewController:(nonnull UIViewController *)parentViewController
 {
     if (self = [super init])
     {
         self.businessID = businessID;
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
-        self.parentView = parentView;
-        self.cgFrame = cgFrame;
+        self.parentViewController = parentViewController;
         [self config];
     }return self;
 }
@@ -70,7 +69,7 @@
 - (void)showAdView
 {
 
-    [self.advice presentAdFromRootViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    [self.advice presentAdFromRootViewController:self.parentViewController];
  }
  
 #pragma mark - Method

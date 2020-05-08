@@ -12,9 +12,8 @@
 
 @property (nonatomic,strong) NSString *businessID;
 @property (nonatomic,strong) NSString *bussinessKey;
-@property (nonatomic,assign) CGRect cgFrame;
 
-@property (nonatomic,strong) UIView *parentView;
+@property (nonatomic,strong) UIViewController *parentViewController;
 
  
 @property (nonatomic,strong) QuysAdSplashService *service;
@@ -24,15 +23,14 @@
 
 @implementation QuysQYXSplashAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView
+- (instancetype)initWithID:businessID key:bussinessKey  eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentViewController:(nonnull UIViewController *)parentViewController
 {
     if (self = [super init])
     {
         self.businessID = businessID;
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
-        self.parentView = parentView;
-        self.cgFrame = cgFrame;
+        self.parentViewController = parentViewController;
         [self config];
     }return self;
 }
@@ -44,7 +42,7 @@
 {
     //配置并请求数据
 
-    QuysAdSplashService *service = [[QuysAdSplashService alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
+    QuysAdSplashService *service = [[QuysAdSplashService alloc] initWithID:self.businessID key:self.bussinessKey  eventDelegate:self parentViewController:self.parentViewController];
     self.service = service;
     
 }

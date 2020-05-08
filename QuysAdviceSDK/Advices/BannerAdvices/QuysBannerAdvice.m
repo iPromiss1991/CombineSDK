@@ -78,7 +78,7 @@
 }
  
 
-#pragma mark - QuysAdSplashDelegate
+#pragma mark - QuysBannerAdviceDelegate
 
 // 开始发起广告请求
 /// @param advice 广告请求服务类

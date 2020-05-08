@@ -74,7 +74,6 @@
 #pragma mark - GDTRewardVideoAdDelegate
 - (void)gdt_rewardVideoAdDidLoad:(GDTRewardVideoAd *)rewardedVideoAd
 {
-    [self loadAdViewAndShow];
       if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoRequestSuccess:)])
            {
                QuysIncentiveVideoAdvice *advice = [self buildAdvice];

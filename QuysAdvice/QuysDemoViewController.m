@@ -74,7 +74,7 @@
         //
         if ([strService isEqualToString:@"banner"])
         {
-            self.service = [[QuysBannerAdvice alloc ]initWithID:@"ziyanapp_banner"
+            self.service = [[QuysBannerAdvice alloc ]initWithID:@"qystest_banner"
                                                             key:@"DF6CB421D36AE5B518700B40A77105A7"
                                                          cgRect:CGRectMake(0, 64,[UIScreen mainScreen].bounds.size.width , 100)
                                                   eventDelegate:self
@@ -92,18 +92,17 @@
         
         if ([strService isEqualToString:@"插屏"])
         {
-            self.service = [[QuysSplashAdvice alloc ]initWithID:@"ziyanapp_cp"
+            self.service = [[QuysSplashAdvice alloc ]initWithID:@"quystest-cp"
                                                             key:@"8EB8AC0B397CA55C2D78DE88DF8587C2"
-                                                         cgRect:CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width , 200)
                                                   eventDelegate:self
-                                                     parentView:viewContain];
+                                                     parentViewController:self];
         }
     }
     
 #endif
     if ([self.service isKindOfClass:[QuysBannerAdvice class]])
     {
-        [self.service performSelector:@selector( loadAdViewAndShow)];
+        [self.service performSelector:@selector(loadAdViewAndShow)];
     }else if ([self.service isKindOfClass:[QuysIncentiveVideoAdvice class]])
     {
         //激励视频
@@ -211,9 +210,9 @@
 
 -(void)quys_IncentiveVideoRequestSuccess:(QuysIncentiveVideoAdvice *)advice
 {
+
     self.adviceView = [self.service valueForKey:@"adviceView"];
-    [self.service performSelector:@selector(loadAdViewAndShow)];
-    
+
     [self.view setNeedsUpdateConstraints];
     [self.view updateConstraintsIfNeeded];
 }
@@ -249,6 +248,7 @@
             self.service = [[QuysIncentiveVideoAdvice alloc]initWithID:@"jlAdziyanapp"
                                                                    key:@"1262DF2885ACB4EEC8FF0486502E7A6D"
                                                          eventDelegate:self presentViewController:self ];
+            [self.service performSelector:@selector(loadAdViewAndShow)];
         }
     }
     

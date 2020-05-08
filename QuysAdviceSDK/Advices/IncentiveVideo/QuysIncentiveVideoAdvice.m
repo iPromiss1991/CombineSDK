@@ -86,19 +86,19 @@
 
 
 /// @param advice 广告请求服务类
-- (void)quys_requestStart:(QuysIncentiveVideoAdvice*) advice
+- (void)quys_IncentiveVideoRequestStart:(QuysIncentiveVideoAdvice*) advice
 {
      NSLog(@"%s",__FUNCTION__);
-    if ([self.delegate respondsToSelector:@selector(quys_requestStart:)])
+    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoRequestStart:)])
     {
-        [self.delegate quys_IncentiveVideoPlaystart:advice];
+        [self.delegate quys_IncentiveVideoRequestStart:advice];
         
     }
 }
 
 /// 广告请求成功
 /// @param advice 广告请求服务类
-- (void)quys_requestSuccess:(QuysIncentiveVideoAdvice*) advice
+- (void)quys_IncentiveVideoRequestSuccess:(QuysIncentiveVideoAdvice*) advice
 {
     NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoRequestSuccess:)])
@@ -111,20 +111,19 @@
 
 /// 广告请求失败
 /// @param advice 广告请求服务类
-- (void)quys_requestFial:(QuysIncentiveVideoAdvice*) advice error:(NSError*)error;
+- (void)quys_IncentiveVideoRequestFial:(QuysIncentiveVideoAdvice*) advice error:(NSError*)error;
 {
     NSLog(@"%s",__FUNCTION__);
+    NSLog(@"\nerror:%@\n",error);
     if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoRequestFial:error:)])
     {
-        
         [self.delegate quys_IncentiveVideoRequestFial:advice error:error ];
-        
     }
 }
 
 /// 广告曝光
 /// @param advice 广告请求服务类
-- (void)quys_interstitialOnExposure:(QuysIncentiveVideoAdvice*) advice
+- (void)quys_IncentiveVideoOnExposure:(QuysIncentiveVideoAdvice*) advice
 {
     NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoOnExposure:)])
@@ -136,7 +135,7 @@
 
 /// 广告点击
 /// @param advice 广告请求服务类
-- (void)quys_interstitialOnClick:(CGPoint)cpClick  relativeClickPoint:(CGPoint)reClick advice:(QuysIncentiveVideoAdvice*) advice;
+- (void)quys_IncentiveVideoOnClickAdvice:(CGPoint)cpClick  relativeClickPoint:(CGPoint)reClick advice:(QuysIncentiveVideoAdvice*) advice;
 {
     NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoOnClickAdvice:)])
@@ -147,7 +146,7 @@
 }
 /// 广告关闭
 /// @param advice 广告请求服务类
-- (void)quys_interstitialOnAdClose:(QuysIncentiveVideoAdvice*) advice
+- (void)quys_IncentiveVideoOnAdClose:(QuysIncentiveVideoAdvice*) advice
 {
     NSLog(@"%s",__FUNCTION__);
     if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoOnAdClose:)])

@@ -22,14 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 创建弹窗广告
 /// @param businessID 业务ID
 /// @param bussinessKey 业务Key
-/// @param frame 弹窗frame
 /// @param delegate 回调代理
-/// @param parentView 弹窗父视图（展示弹窗的容器视图）
+/// @param parentViewController 弹窗父视图（展示弹窗的容器视图）
 - (instancetype)initWithID:businessID
                        key:bussinessKey
-                    cgRect:(CGRect)frame
              eventDelegate:(id <QuysSplashAdviceDelegate>)delegate
-                parentView:(UIView*)parentView;
+                parentViewController:(UIViewController*)parentViewController;
 
 
 
