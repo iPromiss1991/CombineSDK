@@ -24,7 +24,7 @@
 
 @implementation QuysQYXBannerAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysBannerAdviceDelegate>)delegate                parentViewController:(UIViewController*)parentVC
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysBannerAdviceDelegate>)delegate                presentViewController:(UIViewController*)parentVC
 {
     if (self = [super init])
     {
@@ -44,7 +44,7 @@
 {
     //配置并请求数据
 
-    QuysAdBannerService *service = [[QuysAdBannerService alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentVC.view];
+    QuysAdBannerService *service = [[QuysAdBannerService alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self presentVCiewController:self.parentVC];
     self.service = service;
     
 }

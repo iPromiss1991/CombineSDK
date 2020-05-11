@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
                        key:bussinessKey
                     cgRect:(CGRect)frame
              eventDelegate:(id <QuysBannerAdviceDelegate>)delegate
-                parentViewController:(UIViewController*)parentVC;
+                presentViewController:(UIViewController*)parentVC;
 
 
 

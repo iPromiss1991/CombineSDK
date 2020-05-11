@@ -35,7 +35,11 @@
 #define k_baidu_sdk @"baidu_sdk"
 
 
+//弱引用
+#define kWeakSelf(type)  __weak typeof(type) weak##type = type;
 
+//字符串拼接
+#define kStringFormat(format,...) [NSString stringWithFormat:format,##__VA_ARGS__]
 
 
 #endif /* GlobalMacros_h */

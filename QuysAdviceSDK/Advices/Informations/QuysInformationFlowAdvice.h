@@ -24,14 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param bussinessKey 业务Key
 /// @param frame 弹窗frame
 /// @param delegate 回调代理
-/// @param parentView 弹窗父视图（展示弹窗的容器视图）
-/// @param currentViewController 弹窗父视图VC
+/// @param presentViewController 弹窗父视图VC
 - (instancetype)initWithID:businessID
                        key:bussinessKey
                     cgRect:(CGRect)frame
              eventDelegate:(id <QuysInformationFlowAdviceDelegate>)delegate
-                parentView:(UIView*)parentView
-viewController:(UIViewController*)currentViewController;
+            presentViewController:(UIViewController*)presentViewController;
 
 /// 开始加载视图
 - (void)loadAdViewNow;

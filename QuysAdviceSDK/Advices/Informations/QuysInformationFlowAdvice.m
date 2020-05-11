@@ -16,8 +16,7 @@
 @property (nonatomic,strong) NSString *bussinessKey;
 @property (nonatomic,assign) CGRect cgFrame;
 
-@property (nonatomic,strong) UIView *parentView;
-@property (nonatomic,strong) UIViewController *currentViewController;
+@property (nonatomic,strong) UIViewController *presentViewController;
 
 @property (nonatomic,strong) QuysInformationFlowBaseAdvice *advice;
 
@@ -26,16 +25,15 @@
 
 @implementation QuysInformationFlowAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysInformationFlowAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView viewController:(UIViewController*)currentViewController
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysInformationFlowAdviceDelegate>)delegate  presentViewController:(UIViewController*)presentViewController
 {
     if (self = [super init])
     {
         self.businessID = businessID;
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
-        self.parentView = parentView;
         self.cgFrame = cgFrame;
-        self.currentViewController = currentViewController;
+        self.presentViewController = presentViewController;
         [self config];
     }return self;
 }
@@ -50,7 +48,8 @@
     QuysAdconfigResponseModelDataItemAdviceInfo* adviceInfo = [manager getAdviceByType:QuysConfigAdviceTypeBanner];
     if ([adviceInfo.channelName isEqualToString:k_qys_sdk])
     {
-        QuysQYXInformationFlowAdvice *advice = [[QuysQYXInformationFlowAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
+        QuysQYXInformationFlowAdvice *advice = [[QuysQYXInformationFlowAdvice alloc] initWithID:self.businessID key:self.bussinessKey
+                                                cgRect:self.cgFrame eventDelegate:self presentViewController:self.presentViewController];
         self.advice = advice;
     }else if ([adviceInfo.channelName isEqualToString:k_ks_sdk])
     {
@@ -63,8 +62,7 @@
         
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
-        QuysGDTInformationFlowAdvice *advice = [[QuysGDTInformationFlowAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
-        advice.currentViewController = self.currentViewController;
+        QuysGDTInformationFlowAdvice *advice = [[QuysGDTInformationFlowAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self presentViewController:self.presentViewController adviceModel:adviceInfo];
         self.advice = advice;
         
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])

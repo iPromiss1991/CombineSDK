@@ -48,7 +48,7 @@
     QuysAdconfigResponseModelDataItemAdviceInfo* adviceInfo = [manager getAdviceByType:QuysConfigAdviceTypeBanner];
     if ([adviceInfo.channelName isEqualToString:k_qys_sdk])
     {
-        QuysQYXBannerAdvice *advice = [[QuysQYXBannerAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentViewController:self.currentViewController ];
+        QuysQYXBannerAdvice *advice = [[QuysQYXBannerAdvice alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self presentViewController:self.currentViewController ];
         self.advice = advice;
     }else if ([adviceInfo.channelName isEqualToString:k_ks_sdk])
     {
@@ -61,7 +61,7 @@
         
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
-        QuysGDTBannerAdvice *advice = [[QuysGDTBannerAdvice alloc ]initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentViewController:self.currentViewController ];
+        QuysGDTBannerAdvice *advice = [[QuysGDTBannerAdvice alloc ]initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self presentViewController:self.currentViewController  adviceModel:adviceInfo];
         self.advice = advice;
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
     {

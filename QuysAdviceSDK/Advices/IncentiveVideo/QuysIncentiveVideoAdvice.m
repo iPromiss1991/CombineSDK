@@ -62,7 +62,7 @@
            
        }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
        {
-           QuysGDTIncentiveVideoAdvice *advice = [[QuysGDTIncentiveVideoAdvice alloc] initWithID:self.businessID key:self.bussinessKey  eventDelegate:self presentViewController:self.presentViewController];
+           QuysGDTIncentiveVideoAdvice *advice = [[QuysGDTIncentiveVideoAdvice alloc] initWithID:self.businessID key:self.bussinessKey  eventDelegate:self presentViewController:self.presentViewController adviceModel:adviceInfo];
            self.advice = advice;
        }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
        {

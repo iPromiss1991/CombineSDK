@@ -14,7 +14,7 @@
 #import "UIImage+transform.h"
 #import "QuysAdConfigManager.h"
 
-
+#import "QuysReportApiTaskManager.h"
 #import "GlobalMacros.h"
 
 #import <YYModel.h>

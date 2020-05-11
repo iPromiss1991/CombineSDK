@@ -60,7 +60,7 @@
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
         
-        QuysGDTOpenScreenAdvice *advice = [[QuysGDTOpenScreenAdvice alloc] initWithID:self.businessID key:self.bussinessKey launchScreenVC:self.launchScreenVC eventDelegate:self];
+        QuysGDTOpenScreenAdvice *advice = [[QuysGDTOpenScreenAdvice alloc] initWithID:self.businessID key:self.bussinessKey launchScreenVC:self.launchScreenVC eventDelegate:self adviceModel:adviceInfo];
         self.advice = advice;
         
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])

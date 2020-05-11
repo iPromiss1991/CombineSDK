@@ -27,7 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithID:businessID
                        key:bussinessKey
              eventDelegate:(id <QuysIncentiveVideoAdviceDelegate>)delegate
-                presentViewController:(UIViewController*)presentViewController;
+                presentViewController:(UIViewController*)presentViewController
+adviceModel:(QuysAdconfigResponseModelDataItemAdviceInfo *)adviceInfo;
 
 
 

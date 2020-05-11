@@ -24,15 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param bussinessKey 业务Key
 /// @param frame 弹窗frame
 /// @param delegate 回调代理
-/// @param parentView 弹窗父视图（展示弹窗的容器视图）
+/// @param presentViewController 弹窗父视图（展示弹窗的容器视图）
 - (instancetype)initWithID:businessID
                        key:bussinessKey
                     cgRect:(CGRect)frame
              eventDelegate:(id <QuysInformationFlowAdviceDelegate>)delegate
-                parentView:(UIView*)parentView;
-
-@property (nonatomic,strong) UIViewController *currentViewController;
-
+                presentViewController:(UIViewController*)presentViewController
+               adviceModel:(QuysAdconfigResponseModelDataItemAdviceInfo *)adviceInfo;
+ 
 
 @end
 

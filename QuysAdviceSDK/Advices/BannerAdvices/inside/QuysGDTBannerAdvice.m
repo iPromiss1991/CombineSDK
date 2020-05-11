@@ -17,12 +17,13 @@
 @property (nonatomic,assign) CGRect cgFrame;
 
 @property (nonatomic,strong) UIViewController *parentVC;
+@property (nonatomic,strong) QuysAdconfigResponseModelDataItemAdviceInfo *adviceInfo;
 
 @end
 
 
 @implementation QuysGDTBannerAdvice
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysBannerAdviceDelegate>)delegate parentViewController:(nonnull UIViewController *)parentVC
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysBannerAdviceDelegate>)delegate presentViewController:(nonnull UIViewController *)parentVC adviceModel:(nonnull QuysAdconfigResponseModelDataItemAdviceInfo *)adviceInfo
 {
     if (self = [super init])
     {
@@ -31,6 +32,7 @@
         self.delegate = delegate;
         self.parentVC = parentVC;
         self.cgFrame = cgFrame;
+        self.adviceInfo = adviceInfo;
         [self config];
     }return self;
 }
@@ -94,6 +96,7 @@
          [self.delegate quys_BannerRequestSuccess:advice];
          
      }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Request_Success];
 
 }
 
@@ -110,6 +113,8 @@
            QuysBannerAdvice *advice = [self buildAdvice];
            [self.delegate quys_BannerRequestFial:advice error:error];
        }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Request_Fail];
+
 }
 
 /**
@@ -122,6 +127,8 @@
         QuysBannerAdvice *advice = [self buildAdvice];
         [self.delegate quys_BannerOnExposure:advice];
     }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Expourse];
+
 }
 
 /**
@@ -135,6 +142,8 @@
            QuysBannerAdvice *advice = [self buildAdvice];
            [self.delegate quys_BannerOnClickAdvice:advice];
        }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Click];
+
 }
 
 /**
@@ -190,6 +199,8 @@
            QuysBannerAdvice *advice = [self buildAdvice];
            [self.delegate quys_BannerOnAdClose:advice];
        }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Close];
+
 }
 
 

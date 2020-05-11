@@ -21,16 +21,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
+
 /// 创建弹窗广告
 /// @param businessID 业务ID
 /// @param bussinessKey 业务Key
 /// @param launchScreenVC 弹窗背景视图（在广告请求期间的占位图：必须）
 /// @param delegate 回调代理
+/// @param adviceInfo 广告上报相关model
 - (instancetype)initWithID:businessID
                        key:bussinessKey
               launchScreenVC:(UIViewController*)launchScreenVC
-             eventDelegate:(nonnull id<QuysOpenScreenAdviceDelegate>)delegate;
-
+             eventDelegate:(nonnull id<QuysOpenScreenAdviceDelegate>)delegate
+                adviceModel:(QuysAdconfigResponseModelDataItemAdviceInfo *)adviceInfo;
 
 @end
 

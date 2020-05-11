@@ -13,7 +13,7 @@
 @property (nonatomic,strong) NSString *businessID;
 @property (nonatomic,strong) NSString *bussinessKey;
 
-@property (nonatomic,strong) UIViewController *parentViewController;
+@property (nonatomic,strong) UIViewController *presentViewController;
 
  
 @property (nonatomic,strong) QuysAdSplashService *service;
@@ -23,14 +23,14 @@
 
 @implementation QuysQYXSplashAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey  eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentViewController:(nonnull UIViewController *)parentViewController
+- (instancetype)initWithID:businessID key:bussinessKey  eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate presentViewController:(nonnull UIViewController *)presentViewController
 {
     if (self = [super init])
     {
         self.businessID = businessID;
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
-        self.parentViewController = parentViewController;
+        self.presentViewController = presentViewController;
         [self config];
     }return self;
 }
@@ -42,7 +42,7 @@
 {
     //配置并请求数据
 
-    QuysAdSplashService *service = [[QuysAdSplashService alloc] initWithID:self.businessID key:self.bussinessKey  eventDelegate:self parentViewController:self.parentViewController];
+    QuysAdSplashService *service = [[QuysAdSplashService alloc] initWithID:self.businessID key:self.bussinessKey  eventDelegate:self presentVCiewController:self.presentViewController];
     self.service = service;
     
 }

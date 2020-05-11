@@ -16,6 +16,8 @@
 
 @property (nonatomic,strong) UIViewController *launchScreenVC;
 @property (nonatomic,strong)  GDTSplashAd *advice;
+@property (nonatomic,strong) QuysAdconfigResponseModelDataItemAdviceInfo *adviceInfo;
+
 
 @end
 
@@ -25,7 +27,7 @@
 - (instancetype)initWithID:businessID
                        key:bussinessKey
             launchScreenVC:(UIViewController*)launchScreenVC
-             eventDelegate:(nonnull id<QuysOpenScreenAdviceDelegate>)delegate
+             eventDelegate:(nonnull id<QuysOpenScreenAdviceDelegate>)delegate adviceModel:(nonnull QuysAdconfigResponseModelDataItemAdviceInfo *)adviceInfo
 {
     if (self = [super init])
     {
@@ -33,6 +35,7 @@
         self.bussinessKey = bussinessKey;
         self.launchScreenVC = launchScreenVC;
         self.delegate = delegate;
+        self.adviceInfo = adviceInfo;
         [self config];
     }return self;
 }
@@ -85,8 +88,9 @@
     {
         QuysOpenScreenAdvice *advice = [self buildAdvice];
         [self.delegate quys_OpenScreenRequestStart:advice];
-        
     }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Request_Success];
+
 }
 
 - (void)splashAdSuccessPresentScreen:(GDTSplashAd *)splashAd
@@ -105,6 +109,8 @@
                  QuysOpenScreenAdvice *advice = [self buildAdvice];
                  [self.delegate quys_OpenScreenOnExposure:advice ];
              }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Expourse];
+
 }
 
 - (void)splashAdClicked:(GDTSplashAd *)splashAd
@@ -114,6 +120,8 @@
         QuysOpenScreenAdvice *advice = [self buildAdvice];
         [self.delegate quys_OpenScreenOnClickAdvice:advice];
     }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Click];
+
 }
 
 - (void)splashAdApplicationWillEnterBackground:(GDTSplashAd *)splashAd
@@ -132,6 +140,8 @@
            QuysOpenScreenAdvice *advice = [self buildAdvice];
            [self.delegate quys_OpenScreenOnAdClose:advice];
        }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Close];
+
    self.advice = nil;
 }
 

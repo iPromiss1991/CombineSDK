@@ -25,16 +25,16 @@ typedef NS_ENUM(NSInteger) {
 }QuysUploadAdviceType;//广告类型
 
 typedef NS_ENUM(NSInteger) {
-    QuysUploadEventType_Request_Success = 1,
-    QuysUploadEventType_Request_Fail = 2,
-    QuysUploadEventType_Expourse = 13,
-    QuysUploadEventType_Click = 3,
-    QuysUploadEventType_Close = 4,
-    QuysUploadEventType_Play_Start = 5,
-    QuysUploadEventType_Play_End = 6,
-    QuysUploadEventType_Play_Error = 7,
-    QuysUploadEventType_Download_Start = 8,
-    QuysUploadEventType_App_Open = 12,
+    QuysUploadEventType_Request_Success = 1,//!<  请求成功
+    QuysUploadEventType_Request_Fail = 2,//!<  请求失败
+    QuysUploadEventType_Expourse = 13,//!<  曝光
+    QuysUploadEventType_Click = 3,//!<  点击
+    QuysUploadEventType_Close = 4,//!<  关闭
+    QuysUploadEventType_Play_Start = 5,//!<  开始播放
+    QuysUploadEventType_Play_End = 6,//!<  播放完成
+    QuysUploadEventType_Play_Error = 7,//!<  播放出错
+    QuysUploadEventType_Download_Start = 8,//!<  下载开始
+    QuysUploadEventType_App_Open = 12,//!<  下载完成
     
     
 }QuysUploadEventType;//广告类型

@@ -14,7 +14,7 @@
 @property (nonatomic,strong) NSString *bussinessKey;
 @property (nonatomic,assign) CGRect cgFrame;
 
-@property (nonatomic,strong) UIView *parentView;
+@property (nonatomic,strong) UIViewController *presentViewController;
 
  
 @property (nonatomic,strong) QuysInformationFlowService *service;
@@ -24,14 +24,14 @@
 
 @implementation QuysQYXInformationFlowAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysInformationFlowAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysInformationFlowAdviceDelegate>)delegate presentViewController:(nonnull UIViewController *)presentViewController
 {
     if (self = [super init])
     {
         self.businessID = businessID;
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
-        self.parentView = parentView;
+        self.presentViewController = presentViewController;
         self.cgFrame = cgFrame;
         [self config];
     }return self;
@@ -44,7 +44,7 @@
 {
     //配置并请求数据
 
-    QuysInformationFlowService *service = [[QuysInformationFlowService alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self parentView:self.parentView];
+    QuysInformationFlowService *service = [[QuysInformationFlowService alloc] initWithID:self.businessID key:self.bussinessKey cgRect:self.cgFrame eventDelegate:self presentVCiewController:self.presentViewController];
     self.service = service;
     
 }

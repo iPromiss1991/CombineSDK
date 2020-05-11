@@ -16,22 +16,24 @@
 @property (nonatomic,strong) NSString *bussinessKey;
 @property (nonatomic,assign) CGRect cgFrame;
 
-@property (nonatomic,strong) UIViewController *parentViewController;
+@property (nonatomic,strong) UIViewController *presentViewController;
 @property (nonatomic,strong) GDTUnifiedInterstitialAd *advice;
+@property (nonatomic,strong) QuysAdconfigResponseModelDataItemAdviceInfo *adviceInfo;
 
 @end
 
 
 @implementation QuysGDTSplashAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey  eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate parentViewController:(nonnull UIViewController *)parentViewController
+- (instancetype)initWithID:businessID key:bussinessKey  eventDelegate:(nonnull id<QuysSplashAdviceDelegate>)delegate presentViewController:(nonnull UIViewController *)presentViewController adviceModel:(nonnull QuysAdconfigResponseModelDataItemAdviceInfo *)adviceInfo
 {
     if (self = [super init])
     {
         self.businessID = businessID;
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
-        self.parentViewController = parentViewController;
+        self.presentViewController = presentViewController;
+        self.adviceInfo = adviceInfo;
         [self config];
     }return self;
 }
@@ -69,7 +71,7 @@
 - (void)showAdView
 {
 
-    [self.advice presentAdFromRootViewController:self.parentViewController];
+    [self.advice presentAdFromRootViewController:self.presentViewController];
  }
  
 #pragma mark - Method
@@ -91,7 +93,7 @@
          [self.delegate quys_SplashRequestSuccess:advice];
          
      }
-
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Request_Success];
 }
 
 - (void)unifiedInterstitialFailToLoadAd:(GDTUnifiedInterstitialAd *)unifiedInterstitial error:(NSError *)error
@@ -101,6 +103,8 @@
               QuysSplashAdvice *advice = [self buildAdvice];
               [self.delegate quys_SplashRequestFial:advice error:error];
           }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Request_Fail];
+
 }
 
 - (void)unifiedInterstitialWillExposure:(GDTUnifiedInterstitialAd *)unifiedInterstitial
@@ -110,6 +114,8 @@
               QuysSplashAdvice *advice = [self buildAdvice];
               [self.delegate quys_SplashOnExposure:advice ];
           }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Expourse];
+
 }
 
 - (void)unifiedInterstitialClicked:(GDTUnifiedInterstitialAd *)unifiedInterstitial
@@ -119,21 +125,28 @@
              QuysSplashAdvice *advice = [self buildAdvice];
              [self.delegate quys_SplashOnClickAdvice:advice];
          }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Click];
+
 }
 
-- (void)unifiedInterstitialAdDidDismissFullScreenModal:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
+//- (void)unifiedInterstitialAdDidDismissFullScreenModal:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
+//{
+//
+//}
+
+- (void)unifiedInterstitialDidDismissScreen:(GDTUnifiedInterstitialAd *)unifiedInterstitial
 {
     if ([self.delegate respondsToSelector:@selector(quys_SplashOnAdClose:)])
        {
            QuysSplashAdvice *advice = [self buildAdvice];
            [self.delegate quys_SplashOnAdClose:advice];
        }
-}
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Close];
 
+}
 /*
 - (void)unifiedInterstitialWillPresentScreen:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
 - (void)unifiedInterstitialDidPresentScreen:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
-- (void)unifiedInterstitialDidDismissScreen:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
 - (void)unifiedInterstitialWillLeaveApplication:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
 - (void)unifiedInterstitialClicked:(GDTUnifiedInterstitialAd *)unifiedInterstitial;
 - (void)unifiedInterstitialAdWillPresentFullScreenModal:(GDTUnifiedInterstitialAd *)unifiedInterstitial;

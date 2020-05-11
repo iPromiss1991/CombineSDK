@@ -16,17 +16,18 @@
 @property (nonatomic,strong) NSString *bussinessKey;
 @property (nonatomic,assign) CGRect cgFrame;
 
-@property (nonatomic,strong) UIView *parentView;
+@property (nonatomic,strong) UIViewController *presentViewController;
 
 
 @property (nonatomic, strong) GDTNativeExpressAd *advice;
+@property (nonatomic,strong) QuysAdconfigResponseModelDataItemAdviceInfo *adviceInfo;
 
 @end
 
 
 @implementation QuysGDTInformationFlowAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysInformationFlowAdviceDelegate>)delegate parentView:(nonnull UIView *)parentView
+- (instancetype)initWithID:businessID key:bussinessKey cgRect:(CGRect)cgFrame eventDelegate:(nonnull id<QuysInformationFlowAdviceDelegate>)delegate presentViewController:(nonnull UIViewController *)presentViewController adviceModel:(nonnull QuysAdconfigResponseModelDataItemAdviceInfo *)adviceInfo
 {
     if (self = [super init])
     {
@@ -34,7 +35,8 @@
         self.bussinessKey = bussinessKey;
         self.cgFrame = cgFrame;
         self.delegate = delegate;
-        self.parentView = parentView;
+        self.presentViewController = presentViewController;
+        self.adviceInfo = adviceInfo;
         [self config];
     }return self;
 }
@@ -71,7 +73,7 @@
 
 -(UIView *)showAdView
 {
-    [self.parentView addSubview:self.adviceView];
+    [self.presentViewController.view addSubview:self.adviceView];
     return self.adviceView;
 }
 
@@ -93,7 +95,7 @@
   {
        [views enumerateObjectsUsingBlock:^(GDTNativeExpressAdView*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
            GDTNativeExpressAdView *expressView = (GDTNativeExpressAdView *)obj;
-           expressView.controller = self.currentViewController;
+           expressView.controller = self.presentViewController;
            [expressView render];
            self.adviceView = expressView;
        }];
@@ -105,15 +107,9 @@
            [self.delegate quys_InformationFlowRequestSuccess:advice];
            
        }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Request_Success];
 }
 
-/**
- * 拉取广告失败的回调
- */
-- (void)nativeExpressAdRenderFail:(GDTNativeExpressAdView *)nativeExpressAdView
-{
-    
-}
 
 /**
  * 拉取原生模板广告失败
@@ -125,6 +121,8 @@
         QuysInformationFlowAdvice *advice = [self buildAdvice];
         [self.delegate quys_InformationFlowRequestFial:advice error:error ];
     }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Request_Fail];
+
  }
 
 - (void)nativeExpressAdViewRenderSuccess:(GDTNativeExpressAdView *)nativeExpressAdView
@@ -139,7 +137,8 @@
                  QuysInformationFlowAdvice *advice = [self buildAdvice];
                  [self.delegate quys_InformationFlowOnClickAdvice:advice];
              }
-    
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Click];
+
 }
 
 - (void)nativeExpressAdViewClosed:(GDTNativeExpressAdView *)nativeExpressAdView
@@ -151,6 +150,7 @@
         QuysInformationFlowAdvice *advice = [self buildAdvice];
         [self.delegate quys_InformationFlowOnAdClose:advice];
     }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Close];
 
  
 }
@@ -162,6 +162,8 @@
         QuysInformationFlowAdvice *advice = [self buildAdvice];
         [self.delegate quys_InformationFlowOnExposure:advice ];
     }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Expourse];
+
 }
 
 - (void)nativeExpressAdViewWillPresentScreen:(GDTNativeExpressAdView *)nativeExpressAdView

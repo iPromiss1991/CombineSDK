@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QuysIncentiveVideoBaseAdvice : NSObject
 
-/// 开始加载视图 & 并展示
+///  展示视图
 - (void)loadAdViewAndShow;
 
 

@@ -18,13 +18,14 @@
 
  
 @property (nonatomic,strong) GDTRewardVideoAd *advice;
+@property (nonatomic,strong) QuysAdconfigResponseModelDataItemAdviceInfo *adviceInfo;
 
 @end
 
 
 @implementation QuysGDTIncentiveVideoAdvice
 
-- (instancetype)initWithID:businessID key:bussinessKey   eventDelegate:(nonnull id<QuysIncentiveVideoAdviceDelegate>)delegate presentViewController:(nonnull UIViewController *)presentViewController
+- (instancetype)initWithID:businessID key:bussinessKey   eventDelegate:(nonnull id<QuysIncentiveVideoAdviceDelegate>)delegate presentViewController:(nonnull UIViewController *)presentViewController adviceModel:(nonnull QuysAdconfigResponseModelDataItemAdviceInfo *)adviceInfo
 {
     if (self = [super init])
     {
@@ -32,6 +33,7 @@
         self.bussinessKey = bussinessKey;
         self.delegate = delegate;
         self.presentViewController = presentViewController;
+        self.adviceInfo = adviceInfo;
         [self config];
     }return self;
 }
@@ -79,9 +81,9 @@
                QuysIncentiveVideoAdvice *advice = [self buildAdvice];
                advice.adviceView = self.adviceView;
                [self.delegate quys_IncentiveVideoRequestSuccess:advice];
-               
            }
-    }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Request_Success];
+}
 
 
 - (void)gdt_rewardVideoAdVideoDidLoad:(GDTRewardVideoAd *)rewardedVideoAd
@@ -107,6 +109,7 @@
                 [self.delegate quys_IncentiveVideoOnExposure:advice];
                
            }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Expourse];
 }
 
 - (void)gdt_rewardVideoAdDidClose:(GDTRewardVideoAd *)rewardedVideoAd
@@ -120,6 +123,8 @@
               [self.delegate quys_IncentiveVideoOnAdClose:advice];
              
          }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Close];
+
 }
 
 
@@ -133,6 +138,8 @@
               [self.delegate quys_IncentiveVideoOnClickAdvice:advice];
              
          }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Click];
+
 }
 
 - (void)gdt_rewardVideoAd:(GDTRewardVideoAd *)rewardedVideoAd didFailWithError:(NSError *)error
@@ -165,6 +172,7 @@
          [self.delegate quys_IncentiveVideoRequestFial:advice error:error ];
         
     }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Request_Fail];
 }
 
 - (void)gdt_rewardVideoAdDidRewardEffective:(GDTRewardVideoAd *)rewardedVideoAd
@@ -183,6 +191,8 @@
         [self.delegate quys_IncentiveVideoPlayEnd:advice];
        
    }
+    [[QuysReportApiTaskManager shareManager] buildAndAddRequestModel:self.adviceInfo eventType:QuysUploadEventType_Play_End];
+
 }
 
 
