@@ -43,10 +43,17 @@
     
 }
 
-- (void)loadAdViewAndShow
+
+-(void)loadAdView
 {
-    [self.service loadAdViewAndShow];
-    
+    [self.service loadAdView];
+}
+
+
+
+- (void)showAdView
+{
+    [self.service showAdView];
 }
 
 

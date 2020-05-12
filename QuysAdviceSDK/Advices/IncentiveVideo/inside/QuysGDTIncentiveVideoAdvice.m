@@ -47,18 +47,25 @@
     GDTRewardVideoAd *advice = [[GDTRewardVideoAd alloc] initWithAppId:@"1105344611" placementId:@"8020744212936426"];
     advice.videoMuted = NO;
     advice.delegate = self;
-    [advice loadAd];
-   //发起请求
-    if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoRequestStart:)])
-    {
-        QuysIncentiveVideoAdvice *advice = [self buildAdvice];
-         [self.delegate quys_IncentiveVideoRequestStart:advice];
-    }
     self.advice = advice;
     
 }
 
-- (void)loadAdViewAndShow
+- (void)loadAdView
+{
+     [self.advice loadAd];
+     //发起请求
+      if ([self.delegate respondsToSelector:@selector(quys_IncentiveVideoRequestStart:)])
+      {
+          QuysIncentiveVideoAdvice *advice = [self buildAdvice];
+           [self.delegate quys_IncentiveVideoRequestStart:advice];
+      }
+
+}
+
+
+
+- (void)showAdView
 {
     [self.advice showAdFromRootViewController:self.presentViewController];
 

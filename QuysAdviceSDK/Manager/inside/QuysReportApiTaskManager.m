@@ -54,7 +54,7 @@ static const NSInteger AsyncThreadCount = 5;//线程同步最大并发数
     kWeakSelf(self);
          dispatch_async(weakself.productQueue, ^{
              {
-                 [weakself.conditionLock lock];
+                 [weakself.conditionLock lockWhenCondition:0];
                  [weakself.arrApis addObjectsFromArray:arrApi];
                  [weakself.conditionLock unlockWithCondition:1];
              }
@@ -68,25 +68,28 @@ static const NSInteger AsyncThreadCount = 5;//线程同步最大并发数
 - (void)confumeTasks
 {
     kWeakSelf(self);
-       dispatch_async(self.confumeQueue, ^{
-           while (self.arrApis.count > 0)
-           {
-               [self.conditionLock lockWhenCondition:1];
-               QuysBaseRequestApi *api = weakself.arrApis[0];
-               [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-                   NSLog(@"上报成功:%@   %@\n response:\n%@\n",request.baseUrl,request.requestUrl,request.responseObject);
-                   [weakself.arrApis removeObject:api];
-                   [weakself.conditionLock unlockWithCondition:2];
+    dispatch_async(self.confumeQueue, ^{
+        while (YES)
+        {
+            if (self.arrApis.count > 0)
+            {
+                [self.conditionLock lockWhenCondition:1];
+                QuysBaseRequestApi *api = weakself.arrApis[0];
+                [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+                    NSLog(@"上报成功:%@   %@\n response:\n%@\n",request.baseUrl,request.requestUrl,request.responseObject);
+                    [weakself.arrApis removeObject:api];
+                    [weakself.conditionLock unlockWithCondition:0];
 
-               } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-                   [weakself.arrApis removeObject:api];
-                   NSLog(@"上报失败:%@   %@\n",request.baseUrl,request.requestUrl);
-                   [weakself.conditionLock unlockWithCondition:2];
-               }];
-               
-               
-           }
-       });
+                } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+                    [weakself.arrApis removeObject:api];
+                    NSLog(@"上报失败:%@   %@\n",request.baseUrl,request.requestUrl);
+                    [weakself.conditionLock unlockWithCondition:0];
+                }];
+                
+                
+            }
+        }
+    });
 }
 
 

@@ -210,8 +210,7 @@
 
 -(void)quys_IncentiveVideoRequestSuccess:(QuysIncentiveVideoAdvice *)advice
 {
-
-    [self.service performSelector:@selector(loadAdViewAndShow)];
+    [self.service performSelector:@selector(showAdView)];
     self.adviceView = [self.service valueForKey:@"adviceView"];
 
     [self.view setNeedsUpdateConstraints];
@@ -249,6 +248,7 @@
             self.service = [[QuysIncentiveVideoAdvice alloc]initWithID:@"jlAdtest"
                                                                    key:@"1262DF2885ACB4EEC8FF0486502E7A6D"
                                                          eventDelegate:self presentViewController:self ];
+            [self.service performSelector:@selector(loadAdView)];
         }
     }
 //    [self requestByURLSession];

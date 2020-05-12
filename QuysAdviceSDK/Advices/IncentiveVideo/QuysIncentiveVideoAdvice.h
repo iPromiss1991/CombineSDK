@@ -27,8 +27,13 @@ NS_ASSUME_NONNULL_BEGIN
              eventDelegate:(nonnull id<QuysIncentiveVideoAdviceDelegate>)delegate
      presentViewController:(UIViewController*)presentViewController;
 
-/// 开始加载视图 & 并展示
-- (void)loadAdViewAndShow;
+/// 开始加载视图
+- (void)loadAdView;
+
+
+
+/// 开始展示视图
+- (void)showAdView;
 
 
 @end

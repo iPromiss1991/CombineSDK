@@ -30,7 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
                 presentViewController:(UIViewController*)presentViewController
 adviceModel:(QuysAdconfigResponseModelDataItemAdviceInfo *)adviceInfo;
 
+/// 开始加载视图
+- (void)loadAdView;
 
+
+
+/// 开始展示视图
+- (void)showAdView;
 
 @end
 

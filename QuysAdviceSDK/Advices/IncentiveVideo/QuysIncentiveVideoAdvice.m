@@ -74,9 +74,16 @@
 
 
 /// 发起请求
-- (void)loadAdViewAndShow
+- (void)loadAdView
 {
-    [self.advice loadAdViewAndShow];
+    [self.advice loadAdView];
+    
+}
+
+/// 发起请求
+- (void)showAdView
+{
+    [self.advice showAdView];
     
 }
 
