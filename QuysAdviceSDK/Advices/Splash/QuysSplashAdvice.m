@@ -41,7 +41,7 @@
 
 - (void)config
 {
-    //TODO:配置并请求数据
+     
     QuysAdConfigManager *manager = [QuysAdConfigManager shareManager];
     QuysAdconfigResponseModelDataItemAdviceInfo* adviceInfo = [manager getAdviceByType:QuysConfigAdviceTypeBanner];
     if ([adviceInfo.channelName isEqualToString:k_qys_sdk])
@@ -59,7 +59,7 @@
         
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
-        QuysGDTSplashAdvice *advice = [[QuysGDTSplashAdvice alloc] initWithID:self.businessID key:self.bussinessKey  eventDelegate:self presentViewController:self.presentViewController adviceModel:adviceInfo];
+        QuysGDTSplashAdvice *advice = [[QuysGDTSplashAdvice alloc] initWithID:adviceInfo.appId key:adviceInfo.adId  eventDelegate:self presentViewController:self.presentViewController adviceModel:adviceInfo];
         self.advice = advice;
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
     {

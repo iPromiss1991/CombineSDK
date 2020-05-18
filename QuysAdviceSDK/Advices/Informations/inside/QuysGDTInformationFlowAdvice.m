@@ -46,12 +46,11 @@
 
 - (void)config
 {
-    //配置并请求数据/TODO:
-#ifdef IsReleaseVersion
-    GDTNativeExpressAd* advice = [[GDTUnifiedBannerView alloc]
-                                    initWithFrame:self.cgFrame appId:self.businessID //TODO：appid
-                                    placementId:self.bussinessKey
-                                    viewController:self.parentVC];
+ #ifdef IsReleaseVersion
+ GDTNativeExpressAd* advice = [[GDTNativeExpressAd alloc] initWithAppId:self.businessID
+ placementId:self.bussinessKey
+      adSize:CGSizeMake(self.cgFrame.size.width, self.cgFrame.size.height)];
+    
 #else
     GDTNativeExpressAd* advice = [[GDTNativeExpressAd alloc] initWithAppId:@"1105344611"
     placementId:@"5030722621265924"

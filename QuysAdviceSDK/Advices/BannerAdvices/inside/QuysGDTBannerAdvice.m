@@ -42,15 +42,14 @@
 
 - (void)config
 {
-    //配置并请求数据/TODO:
-#ifdef IsReleaseVersion
+ #ifdef IsReleaseVersion
     GDTUnifiedBannerView* adView = [[GDTUnifiedBannerView alloc]
-                                    initWithFrame:self.cgFrame appId:self.businessID //TODO：appid
+                                    initWithFrame:self.cgFrame appId:self.businessID
                                     placementId:self.bussinessKey
                                     viewController:self.parentVC];
 #else
     GDTUnifiedBannerView* adView = [[GDTUnifiedBannerView alloc]
-                                       initWithFrame:self.cgFrame appId:@"1105344611"//TODO：appid
+                                       initWithFrame:self.cgFrame appId:@"1105344611"
                                        placementId:@"1080958885885321"
                                        viewController:self.parentVC];
     

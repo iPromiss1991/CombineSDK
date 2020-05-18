@@ -43,13 +43,12 @@
 
 - (void)config
 {
-    //配置并请求数据/TODO:
-#ifdef IsReleaseVersion
-    GDTUnifiedInterstitialAd* advice = [[GDTUnifiedInterstitialAd alloc]initWithAppId:self.businessID //TODO：appid
+ #ifdef IsReleaseVersion
+    GDTUnifiedInterstitialAd* advice = [[GDTUnifiedInterstitialAd alloc]initWithAppId:self.businessID
                                     placementId:self.bussinessKey
                                  ];
 #else
-    GDTUnifiedInterstitialAd* advice = [[GDTUnifiedInterstitialAd alloc] initWithAppId:@"1105344611"//TODO：appid
+    GDTUnifiedInterstitialAd* advice = [[GDTUnifiedInterstitialAd alloc] initWithAppId:@"1105344611" 
                                        placementId:@"1050652855580392"
                                         ];
     

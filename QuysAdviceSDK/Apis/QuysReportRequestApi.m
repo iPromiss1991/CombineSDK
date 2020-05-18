@@ -11,7 +11,17 @@
 @implementation QuysReportRequestApi
 -(NSString *)requestUrl
 {
-    NSString *strRequestUrl = @"http://adx.quyuansu.com/api/spread/census/record";
+    NSString *strRequestUrl ;
+
+    #ifdef IsReleaseVersion
+        
+        strRequestUrl = @"http://adx.quyuansu.com/api/spread/census/record";
+
+    #else
+        
+        strRequestUrl = @"";
+
+    #endif
 
     NSLog(@"请求地址：\n%@\n",strRequestUrl);
     return strRequestUrl;

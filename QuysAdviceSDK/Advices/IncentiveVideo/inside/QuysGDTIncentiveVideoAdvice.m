@@ -44,7 +44,13 @@
 - (void)config
 {
     //配置并请求数据
+#ifdef IsReleaseVersion
+    GDTRewardVideoAd *advice = [[GDTRewardVideoAd alloc] initWithAppId:self.businessID placementId:self.bussinessKey];
+
+#else
     GDTRewardVideoAd *advice = [[GDTRewardVideoAd alloc] initWithAppId:@"1105344611" placementId:@"8020744212936426"];
+
+#endif
     advice.videoMuted = NO;
     advice.delegate = self;
     self.advice = advice;

@@ -28,7 +28,7 @@
     
     
     QuysAdManager *manager = [QuysAdManager shareManager];
-    [manager configWithAppID:@"A001001"];
+    [manager configWithAppID:@"A19911015"];
     
     UIViewController *viewController = [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil] instantiateViewControllerWithIdentifier:@"LaunchIamge"];
     QuysOpenScreenAdvice *service = [[QuysOpenScreenAdvice alloc]

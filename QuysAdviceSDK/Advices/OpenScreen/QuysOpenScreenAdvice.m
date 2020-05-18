@@ -41,7 +41,7 @@
 
 - (void)config
 {
-    //TODO:配置并请求数据
+     
     QuysAdConfigManager *manager = [QuysAdConfigManager shareManager];
     QuysAdconfigResponseModelDataItemAdviceInfo* adviceInfo = [manager getAdviceByType:QuysConfigAdviceTypeBanner];
     if ([adviceInfo.channelName isEqualToString:k_qys_sdk])
@@ -60,7 +60,7 @@
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
         
-        QuysGDTOpenScreenAdvice *advice = [[QuysGDTOpenScreenAdvice alloc] initWithID:self.businessID key:self.bussinessKey launchScreenVC:self.launchScreenVC eventDelegate:self adviceModel:adviceInfo];
+        QuysGDTOpenScreenAdvice *advice = [[QuysGDTOpenScreenAdvice alloc] initWithID:adviceInfo.appId key:adviceInfo.adId launchScreenVC:self.launchScreenVC eventDelegate:self adviceModel:adviceInfo];
         self.advice = advice;
         
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
