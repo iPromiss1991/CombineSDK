@@ -56,7 +56,6 @@
             if ([obj.channelName isEqualToString:k_qys_sdk])
             {
                 [[QuysAdviceManager shareManager] configSettings];
-                
             }
         }];
         

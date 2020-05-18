@@ -12,8 +12,6 @@
 		FB1A3DE32457E27200B7A7D7 /* QuysAdUploadRequestModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FB1A3DE12457E27200B7A7D7 /* QuysAdUploadRequestModel.h */; };
 		FB1A3DE42457E27200B7A7D7 /* QuysAdUploadRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1A3DE22457E27200B7A7D7 /* QuysAdUploadRequestModel.m */; };
 		FB1A3DE8245823DF00B7A7D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1A3DE7245823DE00B7A7D7 /* LaunchScreen.storyboard */; };
-		FB1A3E3E245834DD00B7A7D7 /* QuysDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1A3E3B245834DC00B7A7D7 /* QuysDemoViewController.m */; };
-		FB1A3E3F245834DD00B7A7D7 /* QuysServiceListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1A3E3D245834DD00B7A7D7 /* QuysServiceListTableViewController.m */; };
 		FB4252102462983400960FF9 /* GDTRewardVideoAdNetworkAdapterProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = FB4251FA2462983400960FF9 /* GDTRewardVideoAdNetworkAdapterProtocol.h */; };
 		FB4252112462983400960FF9 /* GDTNativeExpressAdView.h in Headers */ = {isa = PBXBuildFile; fileRef = FB4251FB2462983400960FF9 /* GDTNativeExpressAdView.h */; };
 		FB4252122462983400960FF9 /* GDTMobBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = FB4251FC2462983400960FF9 /* GDTMobBannerView.h */; };
@@ -69,6 +67,11 @@
 		FB735B912472391400DC0482 /* QuysAdSplashDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = FB735B842472391400DC0482 /* QuysAdSplashDelegate.h */; };
 		FB735B932472391B00DC0482 /* quysBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB735B922472391B00DC0482 /* quysBundle.bundle */; };
 		FB735B9424723A3700DC0482 /* quysBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB735B922472391B00DC0482 /* quysBundle.bundle */; };
+		FB735B97247275A000DC0482 /* QuysBannerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FB735B96247275A000DC0482 /* QuysBannerVC.m */; };
+		FB735B9A24727AD400DC0482 /* QuysSplashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FB735B9924727AD400DC0482 /* QuysSplashVC.m */; };
+		FB735B9D24727C6C00DC0482 /* InformationFlowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FB735B9C24727C6C00DC0482 /* InformationFlowVC.m */; };
+		FB735BA024727E7B00DC0482 /* QuysIncentiveVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FB735B9F24727E7B00DC0482 /* QuysIncentiveVideoVC.m */; };
+		FB735BA92472886700DC0482 /* QuysServiceListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB735BA82472886700DC0482 /* QuysServiceListTableViewController.m */; };
 		FB82D8EE244E997700001144 /* QuysAdviceSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FB82D8EC244E997700001144 /* QuysAdviceSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FBF1A23E244EC2A10091400E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1A23D244EC2A10091400E /* AppDelegate.m */; };
 		FBF1A244244EC2A10091400E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF1A243244EC2A10091400E /* ViewController.m */; };
@@ -181,10 +184,6 @@
 		FB1A3DE52458065A00B7A7D7 /* GlobalMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalMacros.h; sourceTree = "<group>"; };
 		FB1A3DE62458104C00B7A7D7 /* ManagerMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagerMacros.h; sourceTree = "<group>"; };
 		FB1A3DE7245823DE00B7A7D7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FB1A3E3A245834DC00B7A7D7 /* QuysDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuysDemoViewController.h; sourceTree = "<group>"; };
-		FB1A3E3B245834DC00B7A7D7 /* QuysDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuysDemoViewController.m; sourceTree = "<group>"; };
-		FB1A3E3C245834DC00B7A7D7 /* QuysServiceListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuysServiceListTableViewController.h; sourceTree = "<group>"; };
-		FB1A3E3D245834DD00B7A7D7 /* QuysServiceListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuysServiceListTableViewController.m; sourceTree = "<group>"; };
 		FB1A3E40245950F000B7A7D7 /* libPods-QuysAdviceSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-QuysAdviceSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1A3E422459514B00B7A7D7 /* libPods-QuysAdviceSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-QuysAdviceSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4251FA2462983400960FF9 /* GDTRewardVideoAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTRewardVideoAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
@@ -241,6 +240,16 @@
 		FB735B832472391400DC0482 /* QuysIncentiveVideoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuysIncentiveVideoDelegate.h; sourceTree = "<group>"; };
 		FB735B842472391400DC0482 /* QuysAdSplashDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuysAdSplashDelegate.h; sourceTree = "<group>"; };
 		FB735B922472391B00DC0482 /* quysBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = quysBundle.bundle; sourceTree = "<group>"; };
+		FB735B95247275A000DC0482 /* QuysBannerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuysBannerVC.h; sourceTree = "<group>"; };
+		FB735B96247275A000DC0482 /* QuysBannerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuysBannerVC.m; sourceTree = "<group>"; };
+		FB735B9824727AD400DC0482 /* QuysSplashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuysSplashVC.h; sourceTree = "<group>"; };
+		FB735B9924727AD400DC0482 /* QuysSplashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuysSplashVC.m; sourceTree = "<group>"; };
+		FB735B9B24727C6C00DC0482 /* InformationFlowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationFlowVC.h; sourceTree = "<group>"; };
+		FB735B9C24727C6C00DC0482 /* InformationFlowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationFlowVC.m; sourceTree = "<group>"; };
+		FB735B9E24727E7B00DC0482 /* QuysIncentiveVideoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuysIncentiveVideoVC.h; sourceTree = "<group>"; };
+		FB735B9F24727E7B00DC0482 /* QuysIncentiveVideoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuysIncentiveVideoVC.m; sourceTree = "<group>"; };
+		FB735BA72472886700DC0482 /* QuysServiceListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuysServiceListTableViewController.h; sourceTree = "<group>"; };
+		FB735BA82472886700DC0482 /* QuysServiceListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuysServiceListTableViewController.m; sourceTree = "<group>"; };
 		FB82D8E9244E997700001144 /* QuysAdviceSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuysAdviceSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB82D8EC244E997700001144 /* QuysAdviceSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuysAdviceSDK.h; sourceTree = "<group>"; };
 		FB82D8ED244E997700001144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -483,10 +492,16 @@
 		FBF1A23B244EC2A10091400E /* QuysAdvice */ = {
 			isa = PBXGroup;
 			children = (
-				FB1A3E3A245834DC00B7A7D7 /* QuysDemoViewController.h */,
-				FB1A3E3B245834DC00B7A7D7 /* QuysDemoViewController.m */,
-				FB1A3E3C245834DC00B7A7D7 /* QuysServiceListTableViewController.h */,
-				FB1A3E3D245834DD00B7A7D7 /* QuysServiceListTableViewController.m */,
+				FB735BA72472886700DC0482 /* QuysServiceListTableViewController.h */,
+				FB735BA82472886700DC0482 /* QuysServiceListTableViewController.m */,
+				FB735B95247275A000DC0482 /* QuysBannerVC.h */,
+				FB735B96247275A000DC0482 /* QuysBannerVC.m */,
+				FB735B9824727AD400DC0482 /* QuysSplashVC.h */,
+				FB735B9924727AD400DC0482 /* QuysSplashVC.m */,
+				FB735B9B24727C6C00DC0482 /* InformationFlowVC.h */,
+				FB735B9C24727C6C00DC0482 /* InformationFlowVC.m */,
+				FB735B9E24727E7B00DC0482 /* QuysIncentiveVideoVC.h */,
+				FB735B9F24727E7B00DC0482 /* QuysIncentiveVideoVC.m */,
 				FBF1A23C244EC2A10091400E /* AppDelegate.h */,
 				FBF1A23D244EC2A10091400E /* AppDelegate.m */,
 				FBF1A242244EC2A10091400E /* ViewController.h */,
@@ -1032,10 +1047,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB1A3E3F245834DD00B7A7D7 /* QuysServiceListTableViewController.m in Sources */,
+				FB735B97247275A000DC0482 /* QuysBannerVC.m in Sources */,
 				FBF1A244244EC2A10091400E /* ViewController.m in Sources */,
-				FB1A3E3E245834DD00B7A7D7 /* QuysDemoViewController.m in Sources */,
+				FB735B9A24727AD400DC0482 /* QuysSplashVC.m in Sources */,
+				FB735B9D24727C6C00DC0482 /* InformationFlowVC.m in Sources */,
 				FBF1A23E244EC2A10091400E /* AppDelegate.m in Sources */,
+				FB735BA92472886700DC0482 /* QuysServiceListTableViewController.m in Sources */,
+				FB735BA024727E7B00DC0482 /* QuysIncentiveVideoVC.m in Sources */,
 				FBF1A24F244EC2A40091400E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1220,7 +1238,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
-					"IsReleaseVersion=1",
 				);
 				GENERATE_MASTER_OBJECT_FILE = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1271,7 +1288,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
-					"IsReleaseVersion=1",
 				);
 				GENERATE_MASTER_OBJECT_FILE = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1333,6 +1349,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1378,6 +1395,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

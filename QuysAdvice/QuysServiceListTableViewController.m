@@ -7,7 +7,7 @@
 //
 
 #import "QuysServiceListTableViewController.h"
-#import "QuysDemoViewController.h"
+
 @interface QuysServiceListTableViewController ()
 @property (nonatomic,strong) NSMutableArray *arrServiceList;
 
@@ -52,10 +52,38 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *strService = self.arrServiceList[indexPath.row    ];
-     QuysDemoViewController *vc = [[QuysDemoViewController alloc]init];
+    
+    UIViewController *vc = nil;
+    NSString *strService = self.arrServiceList[indexPath.row];
 
+    if ([strService containsString:@"Banner"])
+    {
+        vc = [[NSClassFromString(@"QuysBannerVC") alloc] init ];
+        [vc setValue:@"qystest_banner" forKey:@"businessID"];
+        [vc setValue:@"DF6CB421D36AE5B518700B40A77105A7" forKey:@"businessKey"];
+
+    }else if ([strService containsString:@"插屏"])
+    {
+        vc = [[NSClassFromString(@"QuysSplashVC") alloc] init ];
+               [vc setValue:@"quystest-cp" forKey:@"businessID"];
+               [vc setValue:@"8EB8AC0B397CA55C2D78DE88DF8587C2" forKey:@"businessKey"];
+        
+    }else if ([strService containsString:@"信息流"])
+    {
+        vc = [[NSClassFromString(@"InformationFlowVC") alloc] init ];
+               [vc setValue:@"quystest-xx" forKey:@"businessID"];
+               [vc setValue:@"3A6511273E535FA02C15F37D17D22A95" forKey:@"businessKey"];
+        
+    }else if ([strService containsString:@"激励视频"])
+    {
+        vc = [[NSClassFromString(@"QuysIncentiveVideoVC") alloc] init ];
+               [vc setValue:@"jlAdtest" forKey:@"businessID"];
+               [vc setValue:@"1262DF2885ACB4EEC8FF0486502E7A6D" forKey:@"businessKey"];
+        
+    }
     vc.title = strService;
+
+    
     if (self.navigationController)
     {
         [self.navigationController pushViewController:vc animated:YES];
@@ -118,7 +146,7 @@
 {
     if (_arrServiceList == nil)
     {
-        _arrServiceList = [NSMutableArray arrayWithArray:@[@"banner",@"信息流",@"插屏",@"激励视频(点击屏幕加载广告)"]];
+        _arrServiceList = [NSMutableArray arrayWithArray:@[@"Banner",@"信息流",@"插屏",@"激励视频(点击屏幕加载广告)"]];
     }return _arrServiceList;
 }
 
