@@ -8,8 +8,7 @@
 
 #import "QuysBannerAdvice.h"
 #import "QuysQYXBannerAdvice.h"
-#import "QuysGDTBannerAdvice.h"
-
+ 
 @interface QuysBannerAdvice()<QuysBannerAdviceDelegate>
 
 @property (nonatomic,strong) NSString *businessID;
@@ -61,8 +60,8 @@
         
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
-        QuysGDTBannerAdvice *advice = [[QuysGDTBannerAdvice alloc ]initWithID:adviceInfo.appId key:adviceInfo.adId cgRect:self.cgFrame eventDelegate:self presentViewController:self.currentViewController  adviceModel:adviceInfo];
-        self.advice = advice;
+       
+        
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
     {
         

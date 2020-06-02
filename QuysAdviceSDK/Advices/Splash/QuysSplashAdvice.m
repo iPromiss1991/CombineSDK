@@ -8,8 +8,7 @@
 
 #import "QuysSplashAdvice.h"
 #import "QuysQYXSplashAdvice.h"
-#import "QuysGDTSplashAdvice.h"
-
+ 
 @interface QuysSplashAdvice()<QuysSplashAdviceDelegate>
 
 @property (nonatomic,strong) NSString *businessID;
@@ -59,8 +58,7 @@
         
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
-        QuysGDTSplashAdvice *advice = [[QuysGDTSplashAdvice alloc] initWithID:adviceInfo.appId key:adviceInfo.adId  eventDelegate:self presentViewController:self.presentViewController adviceModel:adviceInfo];
-        self.advice = advice;
+ 
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
     {
         

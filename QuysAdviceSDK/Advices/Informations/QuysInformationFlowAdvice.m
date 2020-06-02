@@ -8,8 +8,7 @@
 
 #import "QuysInformationFlowAdvice.h"
 #import "QuysQYXInformationFlowAdvice.h"
-#import "QuysGDTInformationFlowAdvice.h"
-
+ 
 @interface QuysInformationFlowAdvice()<QuysInformationFlowAdviceDelegate>
 
 @property (nonatomic,strong) NSString *businessID;
@@ -62,9 +61,7 @@
         
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
-        QuysGDTInformationFlowAdvice *advice = [[QuysGDTInformationFlowAdvice alloc] initWithID:adviceInfo.appId key:adviceInfo.adId cgRect:self.cgFrame eventDelegate:self presentViewController:self.presentViewController adviceModel:adviceInfo];
-        self.advice = advice;
-        
+    
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
     {
         

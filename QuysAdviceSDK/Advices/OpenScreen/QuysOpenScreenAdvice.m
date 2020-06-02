@@ -8,8 +8,7 @@
 
 #import "QuysOpenScreenAdvice.h"
 #import "QuysQYXOpenScreenAdvice.h"
-#import "QuysGDTOpenScreenAdvice.h"
-
+ 
 @interface QuysOpenScreenAdvice()<QuysOpenScreenAdviceDelegate>
 
 @property (nonatomic,strong) NSString *businessID;
@@ -60,9 +59,7 @@
     }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
     {
         
-        QuysGDTOpenScreenAdvice *advice = [[QuysGDTOpenScreenAdvice alloc] initWithID:adviceInfo.appId key:adviceInfo.adId launchScreenVC:self.launchScreenVC eventDelegate:self adviceModel:adviceInfo];
-        self.advice = advice;
-        
+    
     }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
     {
         

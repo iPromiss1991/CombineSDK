@@ -8,7 +8,7 @@
 
 #import "QuysIncentiveVideoAdvice.h"
 #import "QuysQYXIncentiveVideoAdvice.h"
-#import "QuysGDTIncentiveVideoAdvice.h"
+
 @interface QuysIncentiveVideoAdvice()<QuysIncentiveVideoAdviceDelegate>
 
 @property (nonatomic,strong) NSString *businessID;
@@ -62,8 +62,8 @@
            
        }else if ([adviceInfo.channelName isEqualToString:k_ylh_sdk])
        {
-           QuysGDTIncentiveVideoAdvice *advice = [[QuysGDTIncentiveVideoAdvice alloc] initWithID:adviceInfo.appId key:adviceInfo.adId  eventDelegate:self presentViewController:self.presentViewController adviceModel:adviceInfo];
-           self.advice = advice;
+        
+           
        }else if ([adviceInfo.channelName isEqualToString:k_baidu_sdk])
        {
            
